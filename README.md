@@ -1,6 +1,6 @@
 # Project 3 - Bucket List - frontEnd
 
-## The Website: 
+## The Website:
 
 via Heroku - TBD
 
