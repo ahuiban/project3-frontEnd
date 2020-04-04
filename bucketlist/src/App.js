@@ -4,6 +4,7 @@ import Home from "./components/Home";
 import Index from "./components/Index";
 import SignUp from "./components/SignUp";
 import Login from "./components/LogIn";
+import NewForm from "./components/NewForm.js";
 
 let baseURL = "http://localhost:3003";
 
@@ -20,12 +21,34 @@ fetch(baseURL + "/bucketlists")
   );
 
 class RenderRoutes extends React.Component {
+  handleAddBucketlist = listhandleAddBucketlist => {
+    const copylisthandleAddBucketlists = [
+      ...this.state.listhandleAddBucketlists,
+    ];
+    copylisthandleAddBucketlists.unshift(listhandleAddBucketlist);
+    this.setState({
+      listhandleAddBucketlists: copylisthandleAddBucketlists,
+      name: "",
+    });
+  };
+
   render() {
     return (
       <div>
         <Route path="/signup/" exact component={SignUp} />
         <Route path="/" exact component={Home} />
         <Route path="/index" exact component={Index} />
+        <Route path="/show" exact component={Show} />
+        <Route path="/new" exact component={NewForm} />
+        <Route
+          path="/login"
+          render={routeProps => (
+            <Login
+              {...routeProps}
+              handleSuccessfulAuth={this.props.handleSuccessfulAuth}
+            />
+          )}
+        />
       </div>
     );
   }
@@ -33,8 +56,38 @@ class RenderRoutes extends React.Component {
 
 class App extends React.Component {
   state = {
-    currentUser: ""
+    currentUser: "",
   };
+
+  getBucketlist = () => {
+    fetch(baseURL + "/bucketlists")
+      .then(
+        data => {
+          return data.json();
+        },
+        err => console.log(err)
+      )
+      .then(
+        parsedData => this.setState({ bucketlist: parsedData }),
+        err => console.log(err)
+      );
+  };
+
+  handleAddBucketlist = bucketlist => {
+    const copyBucketlists = [...this.state.bucketlists];
+    copyBucketlists.unshift(bucketlist);
+    this.setState({
+      bucketlists: copyBucketlists,
+      name: "",
+    });
+  };
+
+  handleSuccessfulAuth = loggedInUser => {
+    this.setState({
+      currentUser: loggedInUser,
+    });
+  };
+
   render() {
     return (
       <Router>
@@ -51,9 +104,10 @@ class App extends React.Component {
             {this.state.currentUser ? <h1>Logged In</h1> : null}
           </div>
         </div>
-        <RenderRoutes />
+        <RenderRoutes handleSuccessfulAuth={this.handleSuccessfulAuth} />
       </Router>
     );
   }
 }
+
 export default App;

@@ -4,7 +4,7 @@ import Show from "../components/Show";
 let baseURL = 'http://localhost:3003'
 
 
-console.log('current base URL:', baseURL)
+console.log("current base URL:", baseURL);
 
 fetch(baseURL+ '/bucketlists')
   .then(data => {
@@ -13,7 +13,9 @@ fetch(baseURL+ '/bucketlists')
   .then(parsedData => console.log(parsedData),
    err => console.log(err))
 
-{/* Show bucket lists created by the user */}
+{
+  /* Show bucket lists created by the user */
+}
 class Index extends React.Component {
   state = {
     display: false,
@@ -54,9 +56,9 @@ class Index extends React.Component {
     return (
       <div>
         <h1>Index (Lists) Page</h1>
-        <img className="imgIndex" src="/bucketLogo.png"></img> 
-            {/* FEEL FREE TO DELETE - image is BIG so it will look good in any size, you can resize as you want! */}
-            {/* SET to 75% */}
+        <img className="imgIndex" src="/bucketLogo.png"></img>
+        {/* FEEL FREE TO DELETE - image is BIG so it will look good in any size, you can resize as you want! */}
+        {/* SET to 75% */}
         <div className="listDiv">
           { this.state.items.map(item =>
                 <div
@@ -73,13 +75,12 @@ class Index extends React.Component {
             display={this.state.display} // Show modal on User click of List
             item={this.state.item}/> : null }        
       </div>
-    )
+    );
   }
 
-  componentDidMount(){
-    this.getItems()
+  componentDidMount() {
+    this.getItems();
   }
-
 }
 
 export default Index;
