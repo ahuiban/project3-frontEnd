@@ -1,12 +1,10 @@
 import React from "react";
 import Show from "../components/Show";
 
-let baseURL = 'http://localhost:3003'
-
+let baseURL = "http://localhost:3003";
 
 console.log("current base URL:", baseURL);
 
-<<<<<<< HEAD
 fetch(baseURL + "/bucketlists")
   .then(
     data => {
@@ -18,14 +16,6 @@ fetch(baseURL + "/bucketlists")
     parsedData => console.log(parsedData),
     err => console.log(err)
   );
-=======
-fetch(baseURL+ '/bucketlists')
-  .then(data => {
-    return data.json()},
-    err => console.log(err))
-  .then(parsedData => console.log(parsedData),
-   err => console.log(err))
->>>>>>> d71a710d0b8f34cfd1e82355d04d4ee2ef629a5f
 
 {
   /* Show bucket lists created by the user */
@@ -34,16 +24,15 @@ class Index extends React.Component {
   state = {
     display: false,
     items: [],
-    item: ''
-  }
+    item: ""
+  };
 
-  getItem = (item) => {
-    this.setState({item: item})
-    console.log(item)
-  }
+  getItem = item => {
+    this.setState({ item: item });
+    console.log(item);
+  };
 
   getItems = () => {
-<<<<<<< HEAD
     fetch(baseURL + "/bucketlists")
       .then(
         data => {
@@ -59,30 +48,20 @@ class Index extends React.Component {
         err => console.log(err)
       );
   };
-=======
-    fetch(baseURL+ '/bucketlists')
-      .then(data => {
-        return data.json()},
-        err => console.log(err))
-      .then(parsedData => this.setState({
-        items: parsedData
-      }),
-       err=> console.log(err))
-  }
 
   toggleModal = item => {
-    console.log("INDEX --> toggleModal")
-    this.getItem(item)
+    console.log("INDEX --> toggleModal");
+    this.getItem(item);
     if (!this.state.display) {
       this.setState({
-      display: true
-    })} else {
+        display: true
+      });
+    } else {
       this.setState({
         display: false
-      })
+      });
     }
-  }
->>>>>>> d71a710d0b8f34cfd1e82355d04d4ee2ef629a5f
+  };
 
   render() {
     return (
@@ -92,20 +71,24 @@ class Index extends React.Component {
         {/* FEEL FREE TO DELETE - image is BIG so it will look good in any size, you can resize as you want! */}
         {/* SET to 75% */}
         <div className="listDiv">
-          { this.state.items.map(item =>
-                <div
-                  key={item._id}
-                  className="listItemsIndex"
-                  onClick={() => {this.toggleModal(item)}}
-                >
-                  <div>{item.listName}</div>
-                </div>
-            )
-          }
+          {this.state.items.map(item => (
+            <div
+              key={item._id}
+              className="listItemsIndex"
+              onClick={() => {
+                this.toggleModal(item);
+              }}
+            >
+              <div>{item.listName}</div>
+            </div>
+          ))}
         </div>
-        { this.state.display ? <Show 
+        {this.state.display ? (
+          <Show
             display={this.state.display} // Show modal on User click of List
-            item={this.state.item}/> : null }        
+            item={this.state.item}
+          />
+        ) : null}
       </div>
     );
   }
