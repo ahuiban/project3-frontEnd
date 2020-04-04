@@ -10,7 +10,9 @@ class Home extends React.Component {
             {/* FEEL FREE TO DELETE - image is BIG so it will look good in any size, you can resize as you want! */}
             {/* SET to 75% */}
         <div className="homePageContent">
-          HOME stuff
+          <p>
+            HOME stuff
+          </p>
         </div>
       </div>
     );

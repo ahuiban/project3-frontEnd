@@ -1,6 +1,6 @@
 * {
   text-align: center;;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }  
 
 body {
@@ -24,13 +24,6 @@ code {
   text-align: center;
 }
 
-.indexPageContent {
-  /* border: 1px solid black; */
-  background: rgb(0, 98, 98);
-  color:white;
-  text-align: center;
-}
-
 .imgHome {
   border: 1px solid goldenrod;
   background-color: goldenrod;
@@ -47,4 +40,9 @@ code {
   height: 100%;
   object-fit: cover;
   overflow: hidden;
+}
+
+.listDiv {
+  background: rgb(0, 78, 78);
+  color:white;
 }

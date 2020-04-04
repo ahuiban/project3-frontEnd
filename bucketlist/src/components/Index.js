@@ -1,12 +1,11 @@
 import React from "react";
-
-let baseURL = process.env.REACT_APP_BASEURL
+let baseURL = 'http://localhost:3003'
 
 // will need to add "/index" INDEX route on server.js back-end
 
 console.log('current base URL:', baseURL)
 
-fetch(baseURL+ '/bucketlists')
+fetch(baseURL+ '/')
   .then(data => {
     return data.json()},
     err => console.log(err))
@@ -18,6 +17,18 @@ class Index extends React.Component {
   state = {
     items: []
   }
+
+  getItems = () => {
+    fetch(baseURL+ '/')
+      .then(data => {
+        return data.json()},
+        err => console.log(err))
+      .then(parsedData => this.setState({
+        items: parsedData
+      }),
+       err=> console.log(err))
+  }
+
   render() {
     return (
       <div>
@@ -26,11 +37,22 @@ class Index extends React.Component {
             {/* FEEL FREE TO DELETE - image is BIG so it will look good in any size, you can resize as you want! */}
             {/* SET to 75% */}
         <div className="indexPageContent">
-          INDEX stuff
+          { this.state.items.map(item =>
+                <div key={item._id} className="listDiv">
+                  <p>{item.listName}</p>
+                  <p>{item.ownerID}</p>
+                </div>
+            )
+          }
         </div>
       </div>
     )
   }
+
+  componentDidMount(){
+    this.getItems()
+  }
+
 }
 
 export default Index;
