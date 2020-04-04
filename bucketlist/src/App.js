@@ -22,6 +22,17 @@ fetch(baseURL + "/bucketlists")
   );
 
 class RenderRoutes extends React.Component {
+  handleAddBucketlist = listhandleAddBucketlist => {
+    const copylisthandleAddBucketlists = [
+      ...this.state.listhandleAddBucketlists,
+    ];
+    copylisthandleAddBucketlists.unshift(listhandleAddBucketlist);
+    this.setState({
+      listhandleAddBucketlists: copylisthandleAddBucketlists,
+      name: "",
+    });
+  };
+
   render() {
     return (
       <div>
@@ -29,7 +40,16 @@ class RenderRoutes extends React.Component {
         <Route path="/" exact component={Home} />
         <Route path="/index" exact component={Index} />
         <Route path="/show" exact component={Show} />
-        <Route path="/login" render={(routeProps) => (<Login {...routeProps} handleSuccessfulAuth={this.props.handleSuccessfulAuth} />)} />
+        <Route path="/new" exact component={NewForm} />
+        <Route
+          path="/login"
+          render={routeProps => (
+            <Login
+              {...routeProps}
+              handleSuccessfulAuth={this.props.handleSuccessfulAuth}
+            />
+          )}
+        />
       </div>
     );
   }
@@ -37,7 +57,7 @@ class RenderRoutes extends React.Component {
 
 class App extends React.Component {
   state = {
-    currentUser: ""
+    currentUser: "",
   };
 
   getBucketlist = () => {
@@ -59,17 +79,16 @@ class App extends React.Component {
     copyBucketlists.unshift(bucketlist);
     this.setState({
       bucketlists: copyBucketlists,
-      name: ""
+      name: "",
     });
   };
 
-  handleSuccessfulAuth = (loggedInUser) => {
+  handleSuccessfulAuth = loggedInUser => {
     this.setState({
-      currentUser: loggedInUser
-    })
-  }
+      currentUser: loggedInUser,
+    });
+  };
 
-  
   render() {
     return (
       <Router>
@@ -88,7 +107,7 @@ class App extends React.Component {
             {this.state.currentUser ? <h1>Logged In</h1> : null}
           </div>
         </div>
-        <RenderRoutes handleSuccessfulAuth={this.handleSuccessfulAuth}/>
+        <RenderRoutes handleSuccessfulAuth={this.handleSuccessfulAuth} />
       </Router>
     );
   }
