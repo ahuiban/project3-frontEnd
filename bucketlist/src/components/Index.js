@@ -3,7 +3,6 @@ import Show from "../components/Show";
 
 let baseURL = 'http://localhost:3003'
 
-
 console.log("current base URL:", baseURL);
 
 fetch(baseURL+ '/bucketlists')
@@ -13,9 +12,6 @@ fetch(baseURL+ '/bucketlists')
   .then(parsedData => console.log(parsedData),
    err => console.log(err))
 
-{
-  /* Show bucket lists created by the user */
-}
 class Index extends React.Component {
   state = {
     display: false,
@@ -41,15 +37,16 @@ class Index extends React.Component {
 
   toggleModal = item => {
     console.log("INDEX --> toggleModal")
+    console.log("BEFORE click, display is: ",this.state.display)
     this.getItem(item)
-    if (!this.state.display) {
-      this.setState({
-      display: true
-    })} else {
-      this.setState({
-        display: false
-      })
-    }
+    this.setState({
+      display: !this.state.display
+    });
+    setTimeout(
+      function() {console.log("AFTER click, display is: ",this.state.display)}
+      .bind(this),
+      250
+    )
   }
 
   render() {
@@ -57,23 +54,23 @@ class Index extends React.Component {
       <div>
         <h1>Index (Lists) Page</h1>
         <img className="imgIndex" src="/bucketLogo.png"></img>
-        {/* FEEL FREE TO DELETE - image is BIG so it will look good in any size, you can resize as you want! */}
-        {/* SET to 75% */}
         <div className="listDiv">
           { this.state.items.map(item =>
                 <div
                   key={item._id}
                   className="listItemsIndex"
-                  onClick={() => {this.toggleModal(item)}}
+                  onClick={e => {this.toggleModal(item)}}
                 >
                   <div>{item.listName}</div>
                 </div>
             )
           }
         </div>
-        { this.state.display ? <Show 
-            display={this.state.display} // Show modal on User click of List
-            item={this.state.item}/> : null }        
+          <Show 
+            onClose={this.toggleModal}
+            display={this.state.display}
+            item={this.state.item}
+          />
       </div>
     );
   }

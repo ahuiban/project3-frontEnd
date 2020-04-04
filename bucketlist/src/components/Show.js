@@ -7,22 +7,12 @@ class Show extends React.Component {
     item: {}
   }
 
-  closeModal = () => {
-    console.log("SHOW --> closeModal")
-      this.setState({
-        display: false
-      })
-      setTimeout(
-        function() {
-            console.log(this.state.display)
-        }
-        .bind(this),
-        1000
-    )
-  }
+  onClose = e => {
+    this.props.onClose && this.props.onClose(e);
+  };
 
   render() {
-    if(!this.state.display){
+    if(!this.props.display){
       return null;
     } else {
     return (
@@ -39,7 +29,9 @@ class Show extends React.Component {
               </div>
               <div 
                 className="closeTab"
-                onClick={() => {this.closeModal()}}
+                onClick={e => {
+                  this.onClose(e);
+                }}
               >
                 CLOSE
               </div>
