@@ -85,3 +85,7 @@ code {
   display: none;
 }
 
+.closeTab {
+  background: rgb(0, 41, 0);
+  font-weight: bolder;
+}

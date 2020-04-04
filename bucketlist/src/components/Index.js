@@ -1,7 +1,8 @@
 import React from "react";
-let baseURL = "http://localhost:3003";
+import Show from "../components/Show";
 
-// will need to add "/index" INDEX route on server.js back-end
+let baseURL = 'http://localhost:3003'
+
 
 console.log("current base URL:", baseURL);
 
@@ -17,8 +18,15 @@ fetch(baseURL+ '/bucketlists')
 }
 class Index extends React.Component {
   state = {
-    items: []
-  };
+    display: false,
+    items: [],
+    item: ''
+  }
+
+  getItem = (item) => {
+    this.setState({item: item})
+    console.log(item)
+  }
 
   getItems = () => {
     fetch(baseURL+ '/bucketlists')
@@ -31,6 +39,19 @@ class Index extends React.Component {
        err=> console.log(err))
   }
 
+  toggleModal = item => {
+    console.log("INDEX --> toggleModal")
+    this.getItem(item)
+    if (!this.state.display) {
+      this.setState({
+      display: true
+    })} else {
+      this.setState({
+        display: false
+      })
+    }
+  }
+
   render() {
     return (
       <div>
@@ -39,13 +60,20 @@ class Index extends React.Component {
         {/* FEEL FREE TO DELETE - image is BIG so it will look good in any size, you can resize as you want! */}
         {/* SET to 75% */}
         <div className="listDiv">
-          {this.state.items.map(item => (
-            <div key={item._id} className="listItemsIndex">
-              <div>{item.listName}</div>
-              <div>{item.ownerID}</div>
-            </div>
-          ))}
+          { this.state.items.map(item =>
+                <div
+                  key={item._id}
+                  className="listItemsIndex"
+                  onClick={() => {this.toggleModal(item)}}
+                >
+                  <div>{item.listName}</div>
+                </div>
+            )
+          }
         </div>
+        { this.state.display ? <Show 
+            display={this.state.display} // Show modal on User click of List
+            item={this.state.item}/> : null }        
       </div>
     );
   }
