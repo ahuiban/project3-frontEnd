@@ -1,5 +1,6 @@
 import React from "react";
 import Show from "../components/Show";
+import NewForm from "./NewForm";
 
 let baseURL = "http://localhost:3003";
 
@@ -25,6 +26,7 @@ class Index extends React.Component {
     display: false,
     items: [],
     item: ""
+
   };
 
   getItem = item => {
@@ -43,7 +45,9 @@ class Index extends React.Component {
       .then(
         parsedData =>
           this.setState({
+
             items: parsedData
+
           }),
         err => console.log(err)
       );
@@ -59,6 +63,7 @@ class Index extends React.Component {
     } else {
       this.setState({
         display: false
+
       });
     }
   };
