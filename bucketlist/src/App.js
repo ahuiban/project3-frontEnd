@@ -4,6 +4,7 @@ import Home from "./components/Home";
 import Index from "./components/Index";
 import Show from "./components/Show";
 import SignUp from "./components/SignUp";
+import Login from "./components/LogIn";
 
 let baseURL = "http://localhost:3003";
 
@@ -34,7 +35,7 @@ class RenderRoutes extends React.Component {
 
 class App extends React.Component {
   state = {
-    currentUser: "",
+    currentUser: ""
   };
   render() {
     return (
@@ -45,7 +46,7 @@ class App extends React.Component {
             <Link to="/index">Lists</Link>
             <Link to="/show">Show</Link>
             <Link to="/signup/">Sign Up</Link>
-            {/* <Link to="/login">Log In</Link> */}
+            <Link to="/login">Log In</Link>
             {/* Link to Index goes here, link only works if signed in else login page*/}
             {/* Link to Show page, link only works if signed in else login page */}
             {/* Link to Create page */}
