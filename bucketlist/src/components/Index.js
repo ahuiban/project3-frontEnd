@@ -1,11 +1,12 @@
 import React from "react";
+import Show from "../components/Show";
+
 let baseURL = 'http://localhost:3003'
 
-// will need to add "/index" INDEX route on server.js back-end
 
 console.log('current base URL:', baseURL)
 
-fetch(baseURL+ '/')
+fetch(baseURL+ '/bucketlists')
   .then(data => {
     return data.json()},
     err => console.log(err))
@@ -15,11 +16,17 @@ fetch(baseURL+ '/')
 {/* Show bucket lists created by the user */}
 class Index extends React.Component {
   state = {
-    items: []
+    items: [],
+    item: ''
+  }
+
+  getItem = (item) => {
+    this.setState({item: item})
+    console.log(item)
   }
 
   getItems = () => {
-    fetch(baseURL+ '/')
+    fetch(baseURL+ '/bucketlists')
       .then(data => {
         return data.json()},
         err => console.log(err))
@@ -38,13 +45,17 @@ class Index extends React.Component {
             {/* SET to 75% */}
         <div className="listDiv">
           { this.state.items.map(item =>
-                <div key={item._id} className="listItemsIndex">
+                <div
+                  key={item._id}
+                  className="listItemsIndex"
+                  onClick={() => this.getItem(item)}
+                >
                   <div>{item.listName}</div>
-                  <div>{item.ownerID}</div>
                 </div>
             )
           }
         </div>
+        { this.state.item ? <Show item={this.state.item}/> : null }        
       </div>
     )
   }
