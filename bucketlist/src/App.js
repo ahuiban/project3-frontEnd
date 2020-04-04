@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Home from "./components/Home";
 import Index from "./components/Index";
 import SignUp from "./components/SignUp";
+import Show from "./components/Show";
 import Login from "./components/LogIn";
 import NewForm from "./components/NewForm.js";
 
