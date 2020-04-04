@@ -28,6 +28,7 @@ class RenderRoutes extends React.Component {
         <Route path="/" exact component={Home} />
         <Route path="/index" exact component={Index} />
         <Route path="/show" exact component={Show} />
+        <Route path="/login" exact component={Login} />
       </div>
     );
   }

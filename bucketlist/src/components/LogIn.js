@@ -25,14 +25,11 @@ class Login extends React.Component {
         username: this.state.username,
         password: this.state.password,
       }),
-    }).then((err, currentUser) => {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log(currentUser);
-      }
-    });
-  };
+    }).then( res => res.json())
+    .then(resJson => {
+      console.log(resJson)
+    }).catch (error => console.error({'Error': error}))
+  }
 
   render() {
     return (

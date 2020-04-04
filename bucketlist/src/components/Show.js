@@ -5,7 +5,7 @@ let baseURL = 'http://localhost:3003'
 
 console.log('current base URL:', baseURL)
 
-fetch(baseURL+ '/')
+fetch(baseURL+ '/bucketlists')
   .then(data => {
     return data.json()},
     err => console.log(err))
@@ -20,7 +20,7 @@ class Show extends React.Component {
   }
 
   getItems = () => {
-    fetch(baseURL+ '/')
+    fetch(baseURL+ '/bucketlists')
       .then(data => {
         return data.json()},
         err => console.log(err))
