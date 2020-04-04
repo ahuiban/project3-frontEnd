@@ -5,26 +5,12 @@ let baseURL = "http://localhost:3003";
 
 console.log("current base URL:", baseURL);
 
-<<<<<<< HEAD
-fetch(baseURL + "/bucketlists")
-  .then(
-    data => {
-      return data.json();
-    },
-    err => console.log(err)
-  )
-  .then(
-    parsedData => console.log(parsedData),
-    err => console.log(err)
-  );
-=======
 fetch(baseURL+ '/bucketlists')
   .then(data => {
     return data.json()},
     err => console.log(err))
   .then(parsedData => console.log(parsedData),
    err => console.log(err))
->>>>>>> 0bb57d80b45d989bce0789b1d9ae5ed4ce5973dc
 
 {
   /* Show bucket lists created by the user */
@@ -35,23 +21,6 @@ class Index extends React.Component {
   };
 
   getItems = () => {
-<<<<<<< HEAD
-    fetch(baseURL + "/bucketlists")
-      .then(
-        data => {
-          return data.json();
-        },
-        err => console.log(err)
-      )
-      .then(
-        parsedData =>
-          this.setState({
-            items: parsedData
-          }),
-        err => console.log(err)
-      );
-  };
-=======
     fetch(baseURL+ '/bucketlists')
       .then(data => {
         return data.json()},
@@ -61,7 +30,6 @@ class Index extends React.Component {
       }),
        err=> console.log(err))
   }
->>>>>>> 0bb57d80b45d989bce0789b1d9ae5ed4ce5973dc
 
   render() {
     return (

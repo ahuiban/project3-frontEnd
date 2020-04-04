@@ -27,8 +27,12 @@ class Login extends React.Component {
       }),
     }).then( res => res.json())
     .then(resJson => {
-      console.log(resJson)
-    }).catch (error => console.error({'Error': error}))
+        console.log(resJson.username)
+        //if username is returned than do this:
+        if (resJson.username) {
+          this.props.handleSuccessfulAuth(resJson.username)
+        }
+    }).catch (error => console.error({'Login Error': error}))
   }
 
   render() {

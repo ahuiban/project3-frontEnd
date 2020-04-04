@@ -29,7 +29,7 @@ class RenderRoutes extends React.Component {
         <Route path="/" exact component={Home} />
         <Route path="/index" exact component={Index} />
         <Route path="/show" exact component={Show} />
-        <Route path="/login" exact component={Login} />
+        <Route path="/login" render={(routeProps) => (<Login {...routeProps} handleSuccessfulAuth={this.props.handleSuccessfulAuth} />)} />
       </div>
     );
   }
@@ -63,6 +63,13 @@ class App extends React.Component {
     });
   };
 
+  handleSuccessfulAuth = (loggedInUser) => {
+    this.setState({
+      currentUser: loggedInUser
+    })
+  }
+
+  
   render() {
     return (
       <Router>
@@ -81,7 +88,7 @@ class App extends React.Component {
             {this.state.currentUser ? <h1>Logged In</h1> : null}
           </div>
         </div>
-        <RenderRoutes />
+        <RenderRoutes handleSuccessfulAuth={this.handleSuccessfulAuth}/>
       </Router>
     );
   }
