@@ -1,8 +1,11 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Home from "./components/Home";
+import Index from "./components/Index";
+import Show from "./components/Show";
 import SignUp from "./components/SignUp";
 import Login from "./components/LogIn";
+import NewForm from "./components/NewForm.js";
 
 let baseURL = "http://localhost:3003";
 
@@ -24,7 +27,8 @@ class RenderRoutes extends React.Component {
       <div>
         <Route path="/signup/" exact component={SignUp} />
         <Route path="/" exact component={Home} />
-        <Route path="/login" exact component={Login} />
+        <Route path="/index" exact component={Index} />
+        <Route path="/show" exact component={Show} />
       </div>
     );
   }
@@ -32,14 +36,40 @@ class RenderRoutes extends React.Component {
 
 class App extends React.Component {
   state = {
-    currentUser: "",
+    currentUser: ""
   };
+
+  getBucketlist = () => {
+    fetch(baseURL + "/bucketlists")
+      .then(
+        data => {
+          return data.json();
+        },
+        err => console.log(err)
+      )
+      .then(
+        parsedData => this.setState({ bucketlist: parsedData }),
+        err => console.log(err)
+      );
+  };
+
+  handleAddBucketlist = bucketlist => {
+    const copyBucketlists = [...this.state.bucketlists];
+    copyBucketlists.unshift(bucketlist);
+    this.setState({
+      bucketlists: copyBucketlists,
+      name: ""
+    });
+  };
+
   render() {
     return (
       <Router>
         <div className="container">
           <nav>
             <Link to="/">Home</Link>
+            <Link to="/index">Lists</Link>
+            <Link to="/show">Show</Link>
             <Link to="/signup/">Sign Up</Link>
             <Link to="/login">Log In</Link>
             {/* Link to Index goes here, link only works if signed in else login page*/}
@@ -55,4 +85,5 @@ class App extends React.Component {
     );
   }
 }
+
 export default App;
