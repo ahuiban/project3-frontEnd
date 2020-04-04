@@ -1,47 +1,45 @@
 import React from "react";
+import { Link } from "react-router-dom";
+let baseURL = "http://localhost:3003";
 
 class NewForm extends React.Component {
   state = {
-    name: ""
+    listName: "",
   };
-
   handleChange = event => {
-    this.setState({ [event.target.id]: event.target.value });
+    this.setState({
+      [event.target.name]: event.target.value,
+    });
   };
-
   handleSubmit = event => {
-    event.preventDefault();
-    fetch(this.props.baseURL + "/bucketlists", {
+    console.log("form submitted");
+    fetch(baseURL + "/bucketlists", {
       method: "POST",
-      body: JSON.stringify({ name: this.state.name }),
       headers: {
-        "Content-Type": "application/json"
-      }
-    })
-      .then(res => res.json())
-      .then(resJson => {
-        this.props.handleAddBucketlist(resJson);
-        this.setState({
-          name: ""
-        });
-      })
-      .catch(error => console.error({ Error: error }));
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        listName: this.state.listName,
+      }),
+    }).then(res => {
+      console.log("res from from", res);
+    });
+    this.props.history.push("/index");
   };
-
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label htmlFor="name"></label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          onChange={this.handleChange}
-          value={this.state.name}
-          placeholder="add a list"
-        />
-        <input type="submit" value="Add a ..." />
-      </form>
+      <div>
+        <h1>New BucketList</h1>
+        <form onSubmit={this.handleSubmit}>
+          <input
+            type="text"
+            name="listName"
+            value={this.state.listname}
+            onChange={this.handleChange}
+          />
+          <input type="submit" value="Create BucketList" />
+        </form>
+      </div>
     );
   }
 }

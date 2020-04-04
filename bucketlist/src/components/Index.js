@@ -1,39 +1,54 @@
 import React from "react";
 import Show from "../components/Show";
+import NewForm from "./NewForm";
 
 let baseURL = 'http://localhost:3003'
 
 console.log("current base URL:", baseURL);
 
-fetch(baseURL+ '/bucketlists')
-  .then(data => {
-    return data.json()},
-    err => console.log(err))
-  .then(parsedData => console.log(parsedData),
-   err => console.log(err))
+fetch(baseURL + "/bucketlists")
+  .then(
+    data => {
+      return data.json();
+    },
+    err => console.log(err)
+  )
+  .then(
+    parsedData => console.log(parsedData),
+    err => console.log(err)
+  );
 
 class Index extends React.Component {
   state = {
     display: false,
     items: [],
-    item: ''
-  }
+    item: ""
 
-  getItem = (item) => {
-    this.setState({item: item})
-    console.log(item)
-  }
+  };
+
+  getItem = item => {
+    this.setState({ item: item });
+    console.log(item);
+  };
 
   getItems = () => {
-    fetch(baseURL+ '/bucketlists')
-      .then(data => {
-        return data.json()},
-        err => console.log(err))
-      .then(parsedData => this.setState({
-        items: parsedData
-      }),
-       err=> console.log(err))
-  }
+    fetch(baseURL + "/bucketlists")
+      .then(
+        data => {
+          return data.json();
+        },
+        err => console.log(err)
+      )
+      .then(
+        parsedData =>
+          this.setState({
+
+            items: parsedData
+
+          }),
+        err => console.log(err)
+      );
+  };
 
   toggleModal = item => {
     console.log("INDEX --> toggleModal")
