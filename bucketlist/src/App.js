@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Home from "./components/Home";
+import Index from "./components/Index";
 import SignUp from "./components/SignUp";
 
 let baseURL = "http://localhost:3003";
@@ -23,6 +24,7 @@ class RenderRoutes extends React.Component {
       <div>
         <Route path="/signup/" exact component={SignUp} />
         <Route path="/" exact component={Home} />
+        <Route path="/index" exact component={Index} />
       </div>
     );
   }
@@ -38,6 +40,7 @@ class App extends React.Component {
         <div className="container">
           <nav>
             <Link to="/">Home</Link>
+            <Link to="/index">Index</Link>
             <Link to="/signup/">Sign Up</Link>
             {/* <Link to="/login">Log In</Link> */}
             {/* Link to Index goes here, link only works if signed in else login page*/}
