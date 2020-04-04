@@ -1,3 +1,7 @@
+html { margin-left: calc(100vw - 100%);
+  -ms-overflow-style: none;
+ }
+
 * {
   text-align: center;;
   /* border: 1px solid red; */
@@ -17,32 +21,67 @@ code {
     monospace;
 }
 
-.homePageContent {
-  /* border: 1px solid black; */
-  background: rgb(168, 128, 25);
-  color:white;
-  text-align: center;
+.container {
+  display:flex;
 }
 
 .imgHome {
-  border: 1px solid goldenrod;
   background-color: goldenrod;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  overflow: hidden;
+
+  width: 50%;
+  height: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .imgIndex {
-  border: 1px solid teal;
   background-color: teal;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  overflow: hidden;
+
+  width: 50%;
+  height: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.imgShow {
+  background-color: green;
+
+  width: 50%;
+  height: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .listDiv {
-  background: rgb(0, 78, 78);
+  width: 50%;
+  height: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.listItemsHome {
+  background:rgb(168, 128, 25);
+  border-top: 1px solid rgb(255, 212, 102);
   color:white;
 }
+
+.listItemsIndex {
+  background: rgb(0, 78, 78);
+  border-top: 1px solid rgb(0, 230, 230);
+  color:white;
+}
+
+.listItemsShow {
+  background: rgb(0, 90, 0);
+  border-top: 1px solid rgb(0, 235, 0);
+  color:white;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+

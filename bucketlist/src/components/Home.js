@@ -9,10 +9,10 @@ class Home extends React.Component {
         <img className="imgHome" src="/bucketLogo.png"></img> 
             {/* FEEL FREE TO DELETE - image is BIG so it will look good in any size, you can resize as you want! */}
             {/* SET to 75% */}
-        <div className="homePageContent">
-          <p>
+        <div className="listDiv">
+          <div className="listItemsHome">
             HOME stuff
-          </p>
+          </div>
         </div>
       </div>
     );

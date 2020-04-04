@@ -32,15 +32,15 @@ class Index extends React.Component {
   render() {
     return (
       <div>
-        <h1>Index Page</h1>
-        <img className="imgIndex" width="50%" src="/bucketLogo.png"></img> 
+        <h1>Index (Lists) Page</h1>
+        <img className="imgIndex" src="/bucketLogo.png"></img> 
             {/* FEEL FREE TO DELETE - image is BIG so it will look good in any size, you can resize as you want! */}
             {/* SET to 75% */}
-        <div className="indexPageContent">
+        <div className="listDiv">
           { this.state.items.map(item =>
-                <div key={item._id} className="listDiv">
-                  <p>{item.listName}</p>
-                  <p>{item.ownerID}</p>
+                <div key={item._id} className="listItemsIndex">
+                  <div>{item.listName}</div>
+                  <div>{item.ownerID}</div>
                 </div>
             )
           }
