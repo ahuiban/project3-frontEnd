@@ -2,8 +2,8 @@ import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Home from "./components/Home";
 import Index from "./components/Index";
-import Show from "./components/Show";
 import SignUp from "./components/SignUp";
+import Show from "./components/Show";
 import Login from "./components/LogIn";
 import NewForm from "./components/NewForm.js";
 
@@ -22,6 +22,17 @@ fetch(baseURL + "/bucketlists")
   );
 
 class RenderRoutes extends React.Component {
+  handleAddBucketlist = listhandleAddBucketlist => {
+    const copylisthandleAddBucketlists = [
+      ...this.state.listhandleAddBucketlists
+    ];
+    copylisthandleAddBucketlists.unshift(listhandleAddBucketlist);
+    this.setState({
+      listhandleAddBucketlists: copylisthandleAddBucketlists,
+      name: ""
+    });
+  };
+
   render() {
     return (
       <div>
@@ -29,7 +40,16 @@ class RenderRoutes extends React.Component {
         <Route path="/" exact component={Home} />
         <Route path="/index" exact component={Index} />
         <Route path="/show" exact component={Show} />
-        <Route path="/login" exact component={Login} />
+        <Route path="/new" exact component={NewForm} />
+        <Route
+          path="/login"
+          render={routeProps => (
+            <Login
+              {...routeProps}
+              handleSuccessfulAuth={this.props.handleSuccessfulAuth}
+            />
+          )}
+        />
       </div>
     );
   }
@@ -63,6 +83,12 @@ class App extends React.Component {
     });
   };
 
+  handleSuccessfulAuth = loggedInUser => {
+    this.setState({
+      currentUser: loggedInUser
+    });
+  };
+
   render() {
     return (
       <Router>
@@ -70,18 +96,16 @@ class App extends React.Component {
           <nav>
             <Link to="/">Home</Link>
             <Link to="/index">Lists</Link>
-            <Link to="/show">Show</Link>
             <Link to="/signup/">Sign Up</Link>
             <Link to="/login">Log In</Link>
             {/* Link to Index goes here, link only works if signed in else login page*/}
-            {/* Link to Show page, link only works if signed in else login page */}
             {/* Link to Create page */}
           </nav>
           <div className="body">
             {this.state.currentUser ? <h1>Logged In</h1> : null}
           </div>
         </div>
-        <RenderRoutes />
+        <RenderRoutes handleSuccessfulAuth={this.handleSuccessfulAuth} />
       </Router>
     );
   }
