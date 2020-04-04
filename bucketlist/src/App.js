@@ -6,6 +6,7 @@ import SignUp from "./components/SignUp";
 import Show from "./components/Show";
 import Login from "./components/LogIn";
 import NewForm from "./components/NewForm.js";
+import Search from "./components/Search";
 
 let baseURL = "http://localhost:3003";
 
@@ -50,6 +51,7 @@ class RenderRoutes extends React.Component {
             />
           )}
         />
+        <Route path="/search" exact component={Search} />
       </div>
     );
   }
@@ -98,6 +100,7 @@ class App extends React.Component {
             <Link to="/index">Lists</Link>
             <Link to="/signup/">Sign Up</Link>
             <Link to="/login">Log In</Link>
+            <Link to="/search">Search</Link>
             {/* Link to Index goes here, link only works if signed in else login page*/}
             {/* Link to Create page */}
           </nav>
