@@ -16,6 +16,7 @@ fetch(baseURL+ '/bucketlists')
 {/* Show bucket lists created by the user */}
 class Index extends React.Component {
   state = {
+    display: false,
     items: [],
     item: ''
   }
@@ -36,6 +37,19 @@ class Index extends React.Component {
        err=> console.log(err))
   }
 
+  toggleModal = item => {
+    console.log("INDEX --> toggleModal")
+    this.getItem(item)
+    if (!this.state.display) {
+      this.setState({
+      display: true
+    })} else {
+      this.setState({
+        display: false
+      })
+    }
+  }
+
   render() {
     return (
       <div>
@@ -48,14 +62,16 @@ class Index extends React.Component {
                 <div
                   key={item._id}
                   className="listItemsIndex"
-                  onClick={() => this.getItem(item)}
+                  onClick={() => {this.toggleModal(item)}}
                 >
                   <div>{item.listName}</div>
                 </div>
             )
           }
         </div>
-        { this.state.item ? <Show item={this.state.item}/> : null }        
+        { this.state.display ? <Show 
+            display={this.state.display} // Show modal on User click of List
+            item={this.state.item}/> : null }        
       </div>
     )
   }
