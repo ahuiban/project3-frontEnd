@@ -25,7 +25,8 @@ class Index extends React.Component {
   state = {
     display: false,
     items: [],
-    item: "",
+    item: ""
+
   };
 
   getItem = item => {
@@ -44,7 +45,9 @@ class Index extends React.Component {
       .then(
         parsedData =>
           this.setState({
-            items: parsedData,
+
+            items: parsedData
+
           }),
         err => console.log(err)
       );
@@ -55,11 +58,12 @@ class Index extends React.Component {
     this.getItem(item);
     if (!this.state.display) {
       this.setState({
-        display: true,
+        display: true
       });
     } else {
       this.setState({
-        display: false,
+        display: false
+
       });
     }
   };

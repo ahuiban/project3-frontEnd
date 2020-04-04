@@ -24,12 +24,12 @@ fetch(baseURL + "/bucketlists")
 class RenderRoutes extends React.Component {
   handleAddBucketlist = listhandleAddBucketlist => {
     const copylisthandleAddBucketlists = [
-      ...this.state.listhandleAddBucketlists,
+      ...this.state.listhandleAddBucketlists
     ];
     copylisthandleAddBucketlists.unshift(listhandleAddBucketlist);
     this.setState({
       listhandleAddBucketlists: copylisthandleAddBucketlists,
-      name: "",
+      name: ""
     });
   };
 
@@ -57,7 +57,7 @@ class RenderRoutes extends React.Component {
 
 class App extends React.Component {
   state = {
-    currentUser: "",
+    currentUser: ""
   };
 
   getBucketlist = () => {
@@ -79,13 +79,13 @@ class App extends React.Component {
     copyBucketlists.unshift(bucketlist);
     this.setState({
       bucketlists: copyBucketlists,
-      name: "",
+      name: ""
     });
   };
 
   handleSuccessfulAuth = loggedInUser => {
     this.setState({
-      currentUser: loggedInUser,
+      currentUser: loggedInUser
     });
   };
 
