@@ -5,6 +5,7 @@ import Index from "./components/Index";
 import Show from "./components/Show";
 import SignUp from "./components/SignUp";
 import Login from "./components/LogIn";
+import NewForm from "./components/NewForm.js";
 
 let baseURL = "http://localhost:3003";
 
@@ -37,6 +38,30 @@ class App extends React.Component {
   state = {
     currentUser: ""
   };
+
+  getBucketlist = () => {
+    fetch(baseURL + "/bucketlists")
+      .then(
+        data => {
+          return data.json();
+        },
+        err => console.log(err)
+      )
+      .then(
+        parsedData => this.setState({ bucketlist: parsedData }),
+        err => console.log(err)
+      );
+  };
+
+  handleAddBucketlist = bucketlist => {
+    const copyBucketlists = [...this.state.bucketlists];
+    copyBucketlists.unshift(bucketlist);
+    this.setState({
+      bucketlists: copyBucketlists,
+      name: ""
+    });
+  };
+
   render() {
     return (
       <Router>
@@ -60,4 +85,5 @@ class App extends React.Component {
     );
   }
 }
+
 export default App;
