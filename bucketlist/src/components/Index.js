@@ -2,7 +2,7 @@ import React from "react";
 import Show from "../components/Show";
 import NewForm from "./NewForm";
 
-let baseURL = "http://localhost:3003";
+let baseURL = 'http://localhost:3003'
 
 console.log("current base URL:", baseURL);
 
@@ -18,21 +18,18 @@ fetch(baseURL + "/bucketlists")
     err => console.log(err)
   );
 
-{
-  /* Show bucket lists created by the user */
-}
 class Index extends React.Component {
   state = {
+    currentUser:this.props.currentUser,
     display: false,
     items: [],
     item: ""
-
-  };
+  }
 
   getItem = item => {
     this.setState({ item: item });
     console.log(item);
-  };
+  }
 
   getItems = () => {
     fetch(baseURL + "/bucketlists")
@@ -54,46 +51,43 @@ class Index extends React.Component {
   };
 
   toggleModal = item => {
-    console.log("INDEX --> toggleModal");
-    this.getItem(item);
-    if (!this.state.display) {
-      this.setState({
-        display: true
-      });
-    } else {
-      this.setState({
-        display: false
-
-      });
-    }
-  };
+    console.log("INDEX --> toggleModal")
+    console.log("BEFORE click, display is: ",this.state.display)
+    this.getItem(item)
+    this.setState({
+      display: !this.state.display
+    });
+    setTimeout(
+      function() {console.log("AFTER click, display is: ",this.state.display)}
+      .bind(this),
+      250
+    )
+  }
 
   render() {
+
     return (
       <div>
         <h1>Index (Lists) Page</h1>
         <img className="imgIndex" src="/bucketLogo.png"></img>
-        {/* FEEL FREE TO DELETE - image is BIG so it will look good in any size, you can resize as you want! */}
-        {/* SET to 75% */}
         <div className="listDiv">
-          {this.state.items.map(item => (
-            <div
-              key={item._id}
-              className="listItemsIndex"
-              onClick={() => {
-                this.toggleModal(item);
-              }}
-            >
-              <div>{item.listName}</div>
-            </div>
-          ))}
+          { this.state.items.map(item =>
+                <div
+                  key={item._id}
+                  className="listItemsIndex"
+                  onClick={e => {this.toggleModal(item)}}
+                >
+                  <div>{item.listName}</div>
+                </div>
+            )
+          }
         </div>
-        {this.state.display ? (
-          <Show
-            display={this.state.display} // Show modal on User click of List
+          <Show 
+            onCloseRequest={this.toggleModal}
+            display={this.state.display}
             item={this.state.item}
           />
-        ) : null}
+          {this.props.currentUser ? <h1>Logged In</h1> : null}
       </div>
     );
   }
