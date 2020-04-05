@@ -1,6 +1,8 @@
 import React from "react";
 // import './modal.css'
 
+
+
 class Show extends React.Component {
   state = {
     item: {}
@@ -18,6 +20,14 @@ class Show extends React.Component {
       return (
           <div className="modal">
             <div className="listItemsShow">
+              <div 
+                className="editList"
+                onClick={e => {
+                  this.onCloseRequest(this.props.item)
+                  this.props.toggleEditClick(true)
+                }}>
+                edit
+              </div>
               <h3>{this.props.item ? this.props.item.listName : null}</h3>
               <div>
                 {this.props.item ? this.props.item.ownerID : null}
