@@ -1,7 +1,7 @@
 import React from "react";
 // import './modal.css'
 
-let baseURL = 'http://localhost:3003'
+let baseURL = process.env.REACT_APP_BASE_URL
 
 class Update extends React.Component {
   state = {

@@ -8,7 +8,8 @@ import Login from "./components/LogIn";
 import NewForm from "./components/NewForm.js";
 import Search from "./components/Search";
 
-let baseURL = "http://localhost:3003";
+let baseURL = process.env.REACT_APP_BASE_URL
+
 
 fetch(baseURL + "/bucketlists")
   .then(

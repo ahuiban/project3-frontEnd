@@ -3,9 +3,10 @@ import Show from "../components/Show";
 import NewForm from "./NewForm";
 import Update from "../components/Update"
 
-let baseURL = 'http://localhost:3003'
 
-console.log("current base URL:", baseURL);
+let baseURL = process.env.REACT_APP_BASE_URL
+
+
 
 fetch(baseURL + "/bucketlists")
   .then(
@@ -81,7 +82,7 @@ class Index extends React.Component {
   }
 
   render() {
-
+      //console.log("current base URL:", baseURL);
     return (
       <div>
         <h1>Index (Lists) Page</h1>
