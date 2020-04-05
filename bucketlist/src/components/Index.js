@@ -20,16 +20,16 @@ fetch(baseURL + "/bucketlists")
 
 class Index extends React.Component {
   state = {
+    currentUser:this.props.currentUser,
     display: false,
     items: [],
     item: ""
-
-  };
+  }
 
   getItem = item => {
     this.setState({ item: item });
     console.log(item);
-  };
+  }
 
   getItems = () => {
     fetch(baseURL + "/bucketlists")
@@ -65,6 +65,7 @@ class Index extends React.Component {
   }
 
   render() {
+
     return (
       <div>
         <h1>Index (Lists) Page</h1>
@@ -82,10 +83,11 @@ class Index extends React.Component {
           }
         </div>
           <Show 
-            onClose={this.toggleModal}
+            onCloseRequest={this.toggleModal}
             display={this.state.display}
             item={this.state.item}
           />
+          {this.props.currentUser ? <h1>Logged In</h1> : null}
       </div>
     );
   }
