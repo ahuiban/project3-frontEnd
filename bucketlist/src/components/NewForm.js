@@ -36,6 +36,7 @@ class NewForm extends React.Component {
             name="listName"
             value={this.state.listname}
             onChange={this.handleChange}
+            autoFocus
           />
           <input type="submit" value="Create BucketList" />
         </form>

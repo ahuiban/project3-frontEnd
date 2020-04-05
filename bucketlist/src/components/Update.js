@@ -69,41 +69,39 @@ class Update extends React.Component {
       return (
           <div className="modal edit">
             <div className="listItemsShow listItemsEdit">
-              <form onSubmit={this.handleSubmit}>
-                <div className="editList">
-                  <input type="submit" value="SAVE CHANGES" />
-                </div>
-                <div>
-                  <br></br>
-                  <br></br>
-                </div>
-                <div>
-                  <label htmlFor="listName">List Name</label>
-                  <input 
-                    onChange={this.handleChange}
-                    type="text"
-                    name="listName"
-                    value ={this.state.listName}
-                  />
-                </div>
-                <div>
-                  <label htmlFor="List Items">List Items</label>
-                    <input 
-                      onChange={this.handleChange}
-                      type="text"
-                      name="listItems"
-                      value ={this.state.listItems}
-                    />
-                </div>
-              </form>
               <div 
-                className="closeTab"
-                
+                className="cancelUpdate"
                 onClick={() => this.props.toggleEditClick(false)}
-                
               >
                 CANCEL
               </div>
+              <form onSubmit={this.handleSubmit}>
+                
+                <div className="formfields">
+                  <div>
+                    <label htmlFor="listName">List Name</label>
+                    <input 
+                      onChange={this.handleChange}
+                      type="text"
+                      name="listName"
+                      value ={this.state.listName}
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="List Items">List Items</label>
+                      <input 
+                        onChange={this.handleChange}
+                        type="text"
+                        name="listItems"
+                        value ={this.state.listItems}
+                      />
+                  </div>
+                </div>
+
+                <div className="editList">
+                  <input type="submit" value="SAVE CHANGES" />
+                </div>
+              </form>
             </div>
           </div>
       );
