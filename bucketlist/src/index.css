@@ -1,28 +1,30 @@
-html { margin-left: calc(100vw - 100%);
+html {
+  margin-left: calc(100vw - 100%);
   -ms-overflow-style: none;
- }
+}
 
 * {
-  text-align: center;;
+  text-align: center;
   /* border: 1px solid red; */
-}  
+}
 
-body, .editList input{
+body,
+.editList input {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
 .container {
-  display:flex;
+  display: flex;
 }
 
 .imgHome {
@@ -64,31 +66,31 @@ code {
 }
 
 .listItemsHome {
-  background:rgb(168, 128, 25);
+  background: rgb(168, 128, 25);
   border-top: 1px solid rgb(255, 212, 102);
-  color:white;
+  color: white;
 }
 
 .listItemsIndex {
   background: rgb(0, 78, 78);
   border-top: 1px solid rgb(0, 230, 230);
-  color:white;
+  color: white;
   overflow: auto;
-  display:flex;
+  display: flex;
   justify-content: center;
 }
 
 .invisible-spacer-box {
-  color:rgba(255, 255, 255, 0);
+  color: rgba(255, 255, 255, 0);
 }
 
 .listNameIndex {
-  display:block;
+  display: block;
   width: 100%;
 }
 
 .delete-button {
-  display: block; 
+  display: block;
   z-index: 1; /* Sit on top */
 }
 
@@ -97,7 +99,7 @@ code {
   margin: auto;
   background: rgb(0, 90, 0);
   border-top: 1px solid rgb(0, 235, 0);
-  color:white;  
+  color: white;
 }
 
 .listItemsEdit form {
@@ -108,16 +110,16 @@ code {
 .modal {
   width: 100%;
   height: 100%;
-  display: block; 
+  display: block;
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
   padding-top: 50vh; /* Location of the box */
   left: 0;
   top: 0;
   overflow: auto; /* Enable scroll if needed */
-  
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
 
 ::-webkit-scrollbar {
@@ -127,10 +129,10 @@ code {
 .closeTab {
   background: rgb(0, 41, 0);
   font-weight: bolder;
-  margin-top:2vh;
+  margin-top: 2vh;
 }
 
-.editList{
+.editList {
   float: right;
   width: 150px;
   margin: 0;
@@ -145,20 +147,39 @@ code {
   color: white;
 }
 
-.editList:hover{
+.editList:hover {
   cursor: pointer;
   background: blue;
 }
 
-.imageDiv{
+.imageDiv {
   width: 20%;
   float: left;
 }
-.imageDiv img{
+.imageDiv img {
   width: 90%;
 }
 
-.searchItemTitle{
+.searchItemTitle {
   margin: 2px 0 10px 0;
 }
 
+.nav-item {
+  padding: 15px;
+  text-decoration: none;
+  color: black;
+}
+
+.nav-item:hover {
+  color: rgba(0, 0, 0, 0.3);
+}
+
+nav {
+  text-align: center;
+  padding: 10px;
+}
+
+nav button {
+  border: none;
+  font-size: 15px;
+}

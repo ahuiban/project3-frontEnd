@@ -103,17 +103,44 @@ class App extends React.Component {
       <Router>
         <div className="container">
           <nav>
-            <Link to="/">Home</Link>
-            <Link to="/index">Lists</Link>
-            <Link to="/signup/">Sign Up</Link>
-            <Link to="/login">Log In</Link>
-            <Link to="/search">Search</Link>
-            <Link to="/new">Create a List</Link>
-            <button onClick={() => this.handleLogout()}>Log Out</button>
+            <Link to="/" className={"nav-item"}>
+              Home
+            </Link>
+
+            <Link to="/new" className={"nav-item"}>
+              Create a List
+            </Link>
+
+            <Link to="/index" className={"nav-item"}>
+              Lists
+            </Link>
+
+            <Link to="/search" className={"nav-item"}>
+              Search
+            </Link>
+
+            {!this.state.currentUser ? (
+              <Link to="/signup/" className={"nav-item"}>
+                Sign Up
+              </Link>
+            ) : null}
+
+            {this.state.currentUser ? (
+              <a
+                href="#"
+                className={"nav-item"}
+                onClick={() => this.handleLogout()}
+              >
+                {" "}
+                Logout{" "}
+              </a>
+            ) : (
+              <Link to="/login" className={"nav-item"}>
+                Log In
+              </Link>
+            )}
           </nav>
-          <div className="body">
-            {this.state.currentUser ? <h1>Logged In</h1> : null}
-          </div>
+          <div className="body"></div>
         </div>
         <RenderRoutes handleSuccessfulAuth={this.handleSuccessfulAuth} />
       </Router>
