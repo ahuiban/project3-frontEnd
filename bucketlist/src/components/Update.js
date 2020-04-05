@@ -111,15 +111,8 @@ class Update extends React.Component {
   }
 
   componentDidMount() {
-  window.addEventListener('keyup', this.handleKeyUp, false);
-  document.addEventListener('click', this.handleOutsideClick, false);
   //populates form with current values:
   this.resetState()
-}
-
-componentWillUnmount() {
-  window.removeEventListener('keyup', this.handleKeyUp, false);
-  document.removeEventListener('click', this.handleOutsideClick, false);
 }
 
 }

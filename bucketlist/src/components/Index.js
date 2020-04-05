@@ -53,18 +53,22 @@ class Index extends React.Component {
       );
   };
 
+  deleteList = (id) => {
+    fetch(baseURL + '/bucketlists/' + id, {
+      method: 'DELETE'
+    }).then( response => {
+      const findIndex = this.state.items.findIndex(item => item._id === id)
+      const copyAllLists = [...this.state.items]
+      copyAllLists.splice(findIndex, 1)
+      this.setState({items: copyAllLists})
+    })
+  }
+
   toggleModal = item => {
-    console.log("INDEX --> toggleModal")
-    console.log("BEFORE click, display is: ",this.state.display)
     this.getItem(item)
     this.setState({
       display: !this.state.display
-    });
-    setTimeout(
-      function() {console.log("AFTER click, display is: ",this.state.display)}
-      .bind(this),
-      250
-    )
+    })
   }
 
   toggleEditClick = (bool) =>{
@@ -92,10 +96,12 @@ class Index extends React.Component {
                 <div
                   key={item._id}
                   className="listItemsIndex"
-                  onClick={e => {this.toggleModal(item)}}
                 >
-                  <div>{item.listName}</div>
+                  <div className="invisible-spacer-box" onClick={e => {this.toggleModal(item)}}>DELETE</div>
+                  <div className="listNameIndex" onClick={e => {this.toggleModal(item)}}>{item.listName}</div>
+                  <div className="delete-button" onClick={()=>this.deleteList(item._id)}>DELETE</div>
                 </div>
+                
             )
           }
         </div>
