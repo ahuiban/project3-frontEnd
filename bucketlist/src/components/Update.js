@@ -50,7 +50,8 @@ class Update extends React.Component {
     }).then( res => res.json())
     .then(resJson => {
       //add received data to state if needed
-
+      console.log(resJson)
+      this.props.getItems()
       //turn off edit model
       this.props.toggleEditClick(false)
     }).catch (error => console.error({'Error': error}))

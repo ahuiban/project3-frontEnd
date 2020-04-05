@@ -111,6 +111,7 @@ class Index extends React.Component {
         ? <Update 
             display={true}
             item={this.state.item}
+            getItems={this.getItems}
             toggleEditClick={this.toggleEditClick}
           />
         : null
