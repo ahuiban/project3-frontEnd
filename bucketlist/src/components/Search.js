@@ -81,10 +81,11 @@ class Search extends React.Component {
         <div className="listDiv">
           {this.state.items.map(item => (
             <div key={item.uuid} className="listItemsIndex">
-              <div>{item.title}</div>
+              <div className='imageDiv'><img src={item.cover_image_url}></img></div>
+              <div className='searchItemTitle'>{item.title}</div>
               <div>{item.description}</div>
               <div>{item.city.name}</div>
-              <div><img src={item.cover_image_url}></img></div>
+              
             </div>
           ))}
         </div>
