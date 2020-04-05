@@ -8,8 +8,7 @@ import Login from "./components/LogIn";
 import NewForm from "./components/NewForm.js";
 import Search from "./components/Search";
 
-let baseURL = process.env.REACT_APP_BASE_URL
-
+let baseURL = process.env.REACT_APP_BASE_URL;
 
 fetch(baseURL + "/bucketlists")
   .then(
@@ -26,12 +25,12 @@ fetch(baseURL + "/bucketlists")
 class RenderRoutes extends React.Component {
   handleAddBucketlist = listhandleAddBucketlist => {
     const copylisthandleAddBucketlists = [
-      ...this.state.listhandleAddBucketlists
+      ...this.state.listhandleAddBucketlists,
     ];
     copylisthandleAddBucketlists.unshift(listhandleAddBucketlist);
     this.setState({
       listhandleAddBucketlists: copylisthandleAddBucketlists,
-      name: ""
+      name: "",
     });
   };
 
@@ -60,7 +59,7 @@ class RenderRoutes extends React.Component {
 
 class App extends React.Component {
   state = {
-    currentUser: ""
+    currentUser: "",
   };
 
   getBucketlist = () => {
@@ -82,13 +81,20 @@ class App extends React.Component {
     copyBucketlists.unshift(bucketlist);
     this.setState({
       bucketlists: copyBucketlists,
-      name: ""
+      name: "",
     });
   };
 
   handleSuccessfulAuth = loggedInUser => {
     this.setState({
-      currentUser: loggedInUser
+      currentUser: loggedInUser,
+    });
+  };
+
+  handleLogout = loggedOut => {
+    loggedOut = "";
+    this.setState({
+      currentUser: loggedOut,
     });
   };
 
@@ -102,8 +108,8 @@ class App extends React.Component {
             <Link to="/signup/">Sign Up</Link>
             <Link to="/login">Log In</Link>
             <Link to="/search">Search</Link>
-            {/* Link to Index goes here, link only works if signed in else login page*/}
-            {/* Link to Create page */}
+            <Link to="/new">Create a List</Link>
+            <button onClick={() => this.handleLogout()}>Log Out</button>
           </nav>
           <div className="body">
             {this.state.currentUser ? <h1>Logged In</h1> : null}
