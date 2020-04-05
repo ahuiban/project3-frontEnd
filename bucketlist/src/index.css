@@ -74,6 +74,22 @@ code {
   border-top: 1px solid rgb(0, 230, 230);
   color:white;
   overflow: auto;
+  display:flex;
+  justify-content: center;
+}
+
+.invisible-spacer-box {
+  color:rgba(255, 255, 255, 0);
+}
+
+.listNameIndex {
+  display:block;
+  width: 100%;
+}
+
+.delete-button {
+  display: block; 
+  z-index: 1; /* Sit on top */
 }
 
 .listItemsShow {
@@ -145,3 +161,4 @@ code {
 .searchItemTitle{
   margin: 2px 0 10px 0;
 }
+

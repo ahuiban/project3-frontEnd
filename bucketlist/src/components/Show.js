@@ -50,16 +50,6 @@ class Show extends React.Component {
     }
   }
 
-  componentDidMount() {
-  window.addEventListener('keyup', this.handleKeyUp, false);
-  document.addEventListener('click', this.handleOutsideClick, false);
-}
-
-componentWillUnmount() {
-  window.removeEventListener('keyup', this.handleKeyUp, false);
-  document.removeEventListener('click', this.handleOutsideClick, false);
-}
-
 }
 
 export default Show;
