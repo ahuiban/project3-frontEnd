@@ -27,6 +27,11 @@ code {
   display: flex;
 }
 
+.containerShow {
+  display:flex;
+  justify-content: space-between;
+}
+
 .imgHome {
   background-color: goldenrod;
 
@@ -46,6 +51,16 @@ code {
   margin-left: auto;
   margin-right: auto;
 }
+
+  .smallImg {
+    background-color:rgba(0,0,0,0);
+    display: inline-block;
+    margin-right: auto;
+    border:1px solid gold;
+
+    width: 3vh;
+    height: 3vh;
+  }
 
 .imgShow {
   background-color: green;
@@ -76,22 +91,27 @@ code {
   border-top: 1px solid rgb(0, 230, 230);
   color: white;
   overflow: auto;
-  display: flex;
-  justify-content: center;
-}
-
-.invisible-spacer-box {
-  color: rgba(255, 255, 255, 0);
+  display:flex;
 }
 
 .listNameIndex {
   display: block;
   width: 100%;
+  padding:2vh;
+  text-align: left;
 }
 
 .delete-button {
   display: block;
   z-index: 1; /* Sit on top */
+  padding:2vh;
+  border-left:1px solid rgb(0, 230, 230);;
+
+/* makes it so users can't select spacer text */
+  -webkit-user-select: none; /* Safari */        
+-moz-user-select: none; /* Firefox */
+-ms-user-select: none; /* IE10+/Edge */
+user-select: none; /* Standard */
 }
 
 .listItemsShow {
@@ -99,12 +119,12 @@ code {
   margin: auto;
   background: rgb(0, 90, 0);
   border-top: 1px solid rgb(0, 235, 0);
-  color: white;
+  color:white;  
+  padding: 2vh;
 }
 
 .listItemsEdit form {
-  margin: 0;
-  padding: 0;
+  margin: 2vh 2vh 0vh 2vh;
 }
 
 .modal {
@@ -129,27 +149,59 @@ code {
 .closeTab {
   background: rgb(0, 41, 0);
   font-weight: bolder;
-  margin-top: 2vh;
+  margin-top:2vh;
+  cursor: pointer;
 }
 
-.editList {
-  float: right;
-  width: 150px;
+.ownerName {
+  font-weight: bolder;
+  margin: 0;
+  padding: 0;
+
+  /* makes it so users can't select spacer text */
+  -webkit-user-select: none; /* Safari */        
+-moz-user-select: none; /* Firefox */
+-ms-user-select: none; /* IE10+/Edge */
+user-select: none; /* Standard */
+}
+
+.showTitle {
+  margin-top: 0px;
+}
+
+.editList{
+  /* float: right; */
+  /* width: 150px; */
+  font-weight: bolder;
   margin: 0;
   padding: 0;
 }
 
 .editList input {
+  background-color:rgba(0,0,0,0);
   width: 100%;
   font-weight: bolder;
-  background: rgb(16, 49, 16);
   border: 0px;
   color: white;
+  /* margin-top: 2vh; */
 }
 
 .editList:hover {
   cursor: pointer;
-  background: blue;
+}
+
+.editList input:hover {
+  cursor: pointer;
+}
+
+.cancelUpdate {
+  background: rgb(0, 41, 0);
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+.formfields {
+  margin-bottom: 2vh;
 }
 
 .imageDiv {

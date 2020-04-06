@@ -87,32 +87,17 @@ class Index extends React.Component {
         <h1>Index (Lists) Page</h1>
         <img className="imgIndex" src="/bucketLogo.png"></img>
         <div className="listDiv">
-          {this.state.items.map(item => (
-            <div key={item._id} className="listItemsIndex">
-              <div
-                className="invisible-spacer-box"
-                onClick={e => {
-                  this.toggleModal(item);
-                }}
-              >
-                DELETE
-              </div>
-              <div
-                className="listNameIndex"
-                onClick={e => {
-                  this.toggleModal(item);
-                }}
-              >
-                {item.listName}
-              </div>
-              <div
-                className="delete-button"
-                onClick={() => this.deleteList(item._id)}
-              >
-                DELETE
-              </div>
-            </div>
-          ))}
+          { this.state.items.map(item =>
+                <div
+                  key={item._id}
+                  className="listItemsIndex"
+                >
+                  <div className="listNameIndex" onClick={e => {this.toggleModal(item)}}>{item.listName}</div>
+                  <div className="delete-button" onClick={()=>this.deleteList(item._id)} unselectable="on">DELETE</div>
+                </div>
+                
+            )
+          }
         </div>
         <Show
           onCloseRequest={this.toggleModal}
