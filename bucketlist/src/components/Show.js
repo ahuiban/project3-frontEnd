@@ -22,7 +22,7 @@ class Show extends React.Component {
             <div className="listItemsShow">
               <div className="containerShow"> {/* top row */}
                   <div className="ownerName">
-                    OWNER: Jacobus Maximus Deridius Philemonis
+                    Jacobus Maximus
                   </div>
                   <div 
                     className="editList"
@@ -34,10 +34,16 @@ class Show extends React.Component {
                   </div>
               </div>
                   <h3 className="showTitle">{this.props.item ? this.props.item.listName : null}</h3>
-              <div>
-                {this.props.item ? this.props.item.ownerID : null}
+              <div className="showListItem">
+                {this.props.item ? this.props.item.items : null}
               </div>
-              <div>
+              <div className="showListItem">
+                {this.props.item ? this.props.item.items : null}
+              </div>
+              <div className="showListItem">
+                {this.props.item ? this.props.item.items : null}
+              </div>
+              <div className="showListItem">
                 {this.props.item ? this.props.item.items : null}
               </div>
               <div 

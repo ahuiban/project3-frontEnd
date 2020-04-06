@@ -111,13 +111,15 @@ code {
   width: 100%;
   padding:2vh;
   text-align: left;
+  cursor: pointer;
 }
 
 .delete-button {
   display: block;
   z-index: 1; /* Sit on top */
   padding:2vh;
-  border-left:1px solid rgb(0, 230, 230);;
+  border-left:1px solid rgb(0, 230, 230);
+  cursor: pointer;
 
 /* makes it so users can't select spacer text */
   -webkit-user-select: none; /* Safari */        
@@ -166,7 +168,7 @@ user-select: none; /* Standard */
 }
 
 .ownerName {
-  font-weight: bolder;
+  font-weight: bold;
   margin: 0;
   padding: 0;
 
@@ -178,7 +180,8 @@ user-select: none; /* Standard */
 }
 
 .showTitle {
-  margin-top: 0px;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
 }
 
 .editList{
