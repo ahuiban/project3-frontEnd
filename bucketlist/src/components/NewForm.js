@@ -30,6 +30,7 @@ class NewForm extends React.Component {
     return (
       <div>
         <h1>New BucketList</h1>
+        <img className="imgNew" src="/bucketLogo.png"></img>
         <form onSubmit={this.handleSubmit}>
           <input
             type="text"
