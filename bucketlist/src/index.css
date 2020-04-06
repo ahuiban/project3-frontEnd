@@ -121,11 +121,15 @@ code {
   border-left:1px solid rgb(0, 230, 230);
   cursor: pointer;
 
-/* makes it so users can't select spacer text */
+  /* makes it so users can't select spacer text */
   -webkit-user-select: none; /* Safari */        
--moz-user-select: none; /* Firefox */
--ms-user-select: none; /* IE10+/Edge */
-user-select: none; /* Standard */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+}
+
+.hoverIndex:hover {
+  background: rgb(0, 51, 51)
 }
 
 .listItemsShow {

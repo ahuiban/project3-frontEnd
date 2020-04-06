@@ -21,9 +21,13 @@ class Show extends React.Component {
           <div className="modal">
             <div className="listItemsShow">
               <div className="containerShow"> {/* top row */}
+                  
+                  {/* Owner Name in top left corner */}
                   <div className="ownerName">
                     {this.props.item.ownerID}
                   </div>
+
+                  {/* EDIT in top right corner */}
                   <div 
                     className="editList"
                     onClick={e => {
@@ -32,29 +36,33 @@ class Show extends React.Component {
                     }}>
                     EDIT
                   </div>
-              </div>
-                  <h3 className="showTitle">{this.props.item ? this.props.item.listName : null}</h3>
-              <div className="showListItem">
-                {this.props.item ? this.props.item.items : null}
-              </div>
-              <div className="showListItem">
-                {this.props.item ? this.props.item.items : null}
-              </div>
-              <div className="showListItem">
-                {this.props.item ? this.props.item.items : null}
-              </div>
-              <div className="showListItem">
-                {this.props.item ? this.props.item.items : null}
-              </div>
-              <div 
-                className="closeTab"
-                
-                onClick={e => {
-                  this.onCloseRequest(e);
-                }}
-              >
-                CLOSE
-              </div>
+
+                  {/* TITLE and ITEMS descending in this order: */}
+                  </div>
+                      <h3 className="showTitle">{this.props.item ? this.props.item.listName : null}</h3>
+                  <div className="showListItem">
+                    {this.props.item ? this.props.item.items : null}
+                  </div>
+                  <div className="showListItem">
+                    {this.props.item ? this.props.item.items : null}
+                  </div>
+                  <div className="showListItem">
+                    {this.props.item ? this.props.item.items : null}
+                  </div>
+                  <div className="showListItem">
+                    {this.props.item ? this.props.item.items : null}
+                  </div>
+
+                  {/* CLOSE at bottom */}
+                  <div 
+                    className="closeTab"
+                    
+                    onClick={e => {
+                      this.onCloseRequest(e);
+                    }}
+                  >
+                    CLOSE
+                  </div>
             </div>
           </div>
       );

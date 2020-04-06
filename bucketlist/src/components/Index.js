@@ -92,8 +92,8 @@ class Index extends React.Component {
                   key={item._id}
                   className="listItemsIndex"
                 >
-                  <div className="listNameIndex" onClick={e => {this.toggleModal(item)}}>{item.listName}</div>
-                  <div className="delete-button" onClick={()=>this.deleteList(item._id)} unselectable="on">DELETE</div>
+                  <div className="listNameIndex hoverIndex" onClick={e => {this.toggleModal(item)}}>{item.listName}</div>
+                  <div className="delete-button hoverIndex" onClick={()=>this.deleteList(item._id)} unselectable="on">DELETE</div>
                 </div>
                 
             )
