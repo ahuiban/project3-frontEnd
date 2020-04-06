@@ -219,6 +219,41 @@ user-select: none; /* Standard */
   cursor: pointer;
 }
 
+/* SEARCH Page */
+.imgSearch {
+  background-color: green;
+
+  width: 50%;
+  height: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.listItemsSearch {
+  background: rgb(0, 90, 0);
+  border-top: 1px solid rgb(0, 235, 0);
+  color: white;
+  overflow: auto;
+  display:flex;
+}
+
+.listNameSearch {
+  display: block;
+  width: 100%;
+  padding:2vh;
+  text-align: left;
+  cursor: pointer;
+}
+
+.hoverSearch:hover {
+  background: rgb(0, 51, 0);
+}
+
+.searchItemTitle {
+  margin: 2px 0 10px 0;
+}
+
 .formfields {
   margin-bottom: 2vh;
 }
@@ -229,10 +264,6 @@ user-select: none; /* Standard */
 }
 .imageDiv img {
   width: 90%;
-}
-
-.searchItemTitle {
-  margin: 2px 0 10px 0;
 }
 
 .nav-item {
