@@ -22,7 +22,7 @@ class Show extends React.Component {
             <div className="listItemsShow">
               <div className="containerShow"> {/* top row */}
                   <div className="ownerName">
-                    Jacobus Maximus
+                    {this.props.item.ownerID}
                   </div>
                   <div 
                     className="editList"
