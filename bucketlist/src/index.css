@@ -18,6 +18,12 @@ body,
   -moz-osx-font-smoothing: grayscale;
 }
 
+body {
+  background-image: url("https://wallpaperplay.com/walls/full/7/3/3/193175.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -33,8 +39,6 @@ code {
 }
 
 .imgHome {
-  background-color: goldenrod;
-
   width: 50%;
   height: 50%;
   display: block;
@@ -54,8 +58,6 @@ code {
 }
 
 .imgIndex {
-  background-color: teal;
-
   width: 50%;
   height: 50%;
   display: block;
@@ -74,8 +76,6 @@ code {
   }
 
 .imgShow {
-  background-color: green;
-
   width: 50%;
   height: 50%;
   display: block;
@@ -92,16 +92,8 @@ code {
   margin-bottom: 10vh;
 }
 
-.listItemsHome {
-  background: rgb(168, 128, 25);
-  border-top: 1px solid rgb(255, 212, 102);
-  color: white;
-}
-
 .listItemsIndex {
-  background: rgb(0, 78, 78);
-  border-top: 1px solid rgb(0, 230, 230);
-  color: white;
+  color: black;
   overflow: auto;
   display:flex;
 }
@@ -284,4 +276,13 @@ nav {
 nav button {
   border: none;
   font-size: 15px;
+}
+
+.home-button {
+  font-size: 24px;
+  padding: 10px;
+  display: inline-block;
+  text-decoration: none;
+  color: black;
+  border: none;
 }
