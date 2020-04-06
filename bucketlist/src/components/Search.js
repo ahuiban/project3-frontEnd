@@ -60,7 +60,7 @@ class Search extends React.Component {
         
       <div>
         <h1>Search</h1>
-        <img className="imgShow" src="/bucketLogo.png"></img>
+        <img className="imgSearch" src="/bucketLogo.png"></img>
         {/* FEEL FREE TO DELETE - image is BIG so it will look good in any size, you can resize as you want! */}
         {/* SET to 75% */}
        
@@ -80,7 +80,7 @@ class Search extends React.Component {
         </div>
         <div className="listDiv">
           {this.state.items.map(item => (
-            <div key={item.uuid} className="listItemsIndex">
+            <div key={item.uuid} className="listItemsSearch hoverSearch">
               <div className='imageDiv'><img src={item.cover_image_url}></img></div>
               <div className='searchItemTitle'>{item.title}</div>
               <div>{item.description}</div>
