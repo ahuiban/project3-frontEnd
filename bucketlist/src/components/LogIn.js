@@ -1,5 +1,5 @@
 import React from "react";
-let baseURL = process.env.REACT_APP_BASE_URL
+let baseURL = process.env.REACT_APP_BASE_URL;
 
 class Login extends React.Component {
   state = {
@@ -25,21 +25,25 @@ class Login extends React.Component {
         username: this.state.username,
         password: this.state.password,
       }),
-    }).then( res => res.json())
-    .then(resJson => {
-        console.log(resJson.username)
+    })
+      .then(res => res.json())
+      .then(resJson => {
+        console.log(resJson.username);
         //if username is returned than do this:
         if (resJson.username) {
-          this.props.handleSuccessfulAuth(resJson.username)
+          this.props.handleSuccessfulAuth(resJson.username);
         } else {
-          console.log(resJson)
+          console.log(resJson);
         }
-    }).catch (error => console.error({'Login Error': error}))
-  }
+      })
+      .catch(error => console.error({ "Login Error": error }));
+    this.props.history.push("/");
+  };
 
   render() {
     return (
       <div>
+        <h1>Log In</h1>
         <form onSubmit={this.handleSubmit}>
           <input
             type="text"

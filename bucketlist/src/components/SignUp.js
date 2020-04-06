@@ -1,5 +1,5 @@
 import React from "react";
-let baseURL = process.env.REACT_APP_BASE_URL
+let baseURL = process.env.REACT_APP_BASE_URL;
 
 class SignUp extends React.Component {
   state = {
@@ -38,6 +38,7 @@ class SignUp extends React.Component {
   render() {
     return (
       <div>
+        <h1>Sign Up</h1>
         <form onSubmit={this.handleSubmit}>
           <input
             type="text"
