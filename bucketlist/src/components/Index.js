@@ -106,7 +106,7 @@ class Index extends React.Component {
           toggleEditClick={this.toggleEditClick}
         />
         {/*Edit form to only be shown when edit button is clicked*/}
-        <div>
+        <div id="Update">
           {this.state.editClicked ? (
             <Update
               display={true}
