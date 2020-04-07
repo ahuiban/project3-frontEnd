@@ -11,6 +11,17 @@ via Heroku - TBD
 ## Unsolved problems
 
 ## User stories
+- User should be able to register
+- User should be able to log in
+- User should be able to log out
+- User should be able to create a bucket list
+- User should be able to see their bucket lists
+- User should be able to add items to the bucket list
+- User should be able to edit items on the bucket list
+- User shoulkd be able to save changes to the bucket list
+- User should be able to mark items as completed
+- User should be able to delete a bucket list
+- User should be able to delete items (TODO)
 
 ### Notes
 
