@@ -5,20 +5,22 @@ class Home extends React.Component {
   render() {
     return (
       <div>
-        <h1>Home Page</h1>
         <img className="imgHome" src="/bucketLogo.png"></img>
         <div className="listDiv">
           <div className="listItemsHome">
             <div>
-                <Link to="/new">
-                  <button>Create BucketList</button>
-                </Link>
+              <Link to="/new">
+                <a href="#" className="home-button">
+                  Create BucketList
+                </a>
+              </Link>
+              <Link to="/index">
+                <a href="#" className="home-button">
+                  See BucketLists
+                </a>
+              </Link>
             </div>
-            <div>
-                <Link to="/index">
-                  <button>See BucketLists</button>
-                </Link>
-            </div>
+            <div></div>
           </div>
         </div>
       </div>

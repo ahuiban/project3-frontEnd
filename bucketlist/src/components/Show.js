@@ -20,45 +20,54 @@ class Show extends React.Component {
       return (
           <div className="modal">
             <div className="listItemsShow">
-              <div 
-                className="editList"
-                onClick={e => {
-                  this.onCloseRequest(this.props.item)
-                  this.props.toggleEditClick(true)
-                }}>
-                edit
-              </div>
-              <h3>{this.props.item ? this.props.item.listName : null}</h3>
-              <div>
-                {this.props.item ? this.props.item.ownerID : null}
-              </div>
-              <div>
-                {this.props.item ? this.props.item.items : null}
-              </div>
-              <div 
-                className="closeTab"
-                
-                onClick={e => {
-                  this.onCloseRequest(e);
-                }}
-              >
-                CLOSE
-              </div>
+              <div className="containerShow"> {/* top row */}
+                  
+                  {/* Owner Name in top left corner */}
+                  <div className="ownerName">
+                    {this.props.item.ownerID}
+                  </div>
+
+                  {/* EDIT in top right corner */}
+                  <div 
+                    className="editList"
+                    onClick={e => {
+                      this.onCloseRequest(this.props.item)
+                      this.props.toggleEditClick(true)
+                    }}>
+                    EDIT
+                  </div>
+
+                  {/* TITLE and ITEMS descending in this order: */}
+                  </div>
+                      <h3 className="showTitle">{this.props.item ? this.props.item.listName : null}</h3>
+                  <div className="showListItem">
+                    {this.props.item ? this.props.item.items : null}
+                  </div>
+                  <div className="showListItem">
+                    {this.props.item ? this.props.item.items : null}
+                  </div>
+                  <div className="showListItem">
+                    {this.props.item ? this.props.item.items : null}
+                  </div>
+                  <div className="showListItem">
+                    {this.props.item ? this.props.item.items : null}
+                  </div>
+
+                  {/* CLOSE at bottom */}
+                  <div 
+                    className="closeTab"
+                    
+                    onClick={e => {
+                      this.onCloseRequest(e);
+                    }}
+                  >
+                    CLOSE
+                  </div>
             </div>
           </div>
       );
     }
   }
-
-  componentDidMount() {
-  window.addEventListener('keyup', this.handleKeyUp, false);
-  document.addEventListener('click', this.handleOutsideClick, false);
-}
-
-componentWillUnmount() {
-  window.removeEventListener('keyup', this.handleKeyUp, false);
-  document.removeEventListener('click', this.handleOutsideClick, false);
-}
 
 }
 

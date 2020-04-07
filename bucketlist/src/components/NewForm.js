@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-let baseURL = process.env.REACT_APP_BASE_URL
+let baseURL = process.env.REACT_APP_BASE_URL;
 
 class NewForm extends React.Component {
   state = {
@@ -30,12 +30,14 @@ class NewForm extends React.Component {
     return (
       <div>
         <h1>New BucketList</h1>
+        <img className="imgNew" src="/bucketLogo.png"></img>
         <form onSubmit={this.handleSubmit}>
           <input
             type="text"
             name="listName"
             value={this.state.listname}
             onChange={this.handleChange}
+            autoFocus
           />
           <input type="submit" value="Create BucketList" />
         </form>

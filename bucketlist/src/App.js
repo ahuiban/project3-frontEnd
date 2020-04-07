@@ -8,8 +8,7 @@ import Login from "./components/LogIn";
 import NewForm from "./components/NewForm.js";
 import Search from "./components/Search";
 
-let baseURL = process.env.REACT_APP_BASE_URL
-
+let baseURL = process.env.REACT_APP_BASE_URL;
 
 fetch(baseURL + "/bucketlists")
   .then(
@@ -26,12 +25,12 @@ fetch(baseURL + "/bucketlists")
 class RenderRoutes extends React.Component {
   handleAddBucketlist = listhandleAddBucketlist => {
     const copylisthandleAddBucketlists = [
-      ...this.state.listhandleAddBucketlists
+      ...this.state.listhandleAddBucketlists,
     ];
     copylisthandleAddBucketlists.unshift(listhandleAddBucketlist);
     this.setState({
       listhandleAddBucketlists: copylisthandleAddBucketlists,
-      name: ""
+      name: "",
     });
   };
 
@@ -60,7 +59,7 @@ class RenderRoutes extends React.Component {
 
 class App extends React.Component {
   state = {
-    currentUser: ""
+    currentUser: "",
   };
 
   getBucketlist = () => {
@@ -82,13 +81,20 @@ class App extends React.Component {
     copyBucketlists.unshift(bucketlist);
     this.setState({
       bucketlists: copyBucketlists,
-      name: ""
+      name: "",
     });
   };
 
   handleSuccessfulAuth = loggedInUser => {
     this.setState({
-      currentUser: loggedInUser
+      currentUser: loggedInUser,
+    });
+  };
+
+  handleLogout = loggedOut => {
+    loggedOut = "";
+    this.setState({
+      currentUser: loggedOut,
     });
   };
 
@@ -97,17 +103,44 @@ class App extends React.Component {
       <Router>
         <div className="container">
           <nav>
-            <Link to="/">Home</Link>
-            <Link to="/index">Lists</Link>
-            <Link to="/signup/">Sign Up</Link>
-            <Link to="/login">Log In</Link>
-            <Link to="/search">Search</Link>
-            {/* Link to Index goes here, link only works if signed in else login page*/}
-            {/* Link to Create page */}
+            <Link to="/" className={"nav-item"}>
+              Home
+            </Link>
+
+            <Link to="/new" className={"nav-item"}>
+              Create a List
+            </Link>
+
+            <Link to="/index" className={"nav-item"}>
+              Lists
+            </Link>
+
+            <Link to="/search" className={"nav-item"}>
+              Search
+            </Link>
+
+            {!this.state.currentUser ? (
+              <Link to="/signup/" className={"nav-item"}>
+                Sign Up
+              </Link>
+            ) : null}
+
+            {this.state.currentUser ? (
+              <a
+                href="#"
+                className={"nav-item"}
+                onClick={() => this.handleLogout()}
+              >
+                {" "}
+                Logout{" "}
+              </a>
+            ) : (
+              <Link to="/login" className={"nav-item"}>
+                Log In
+              </Link>
+            )}
           </nav>
-          <div className="body">
-            {this.state.currentUser ? <h1>Logged In</h1> : null}
-          </div>
+          <div className="body"></div>
         </div>
         <RenderRoutes handleSuccessfulAuth={this.handleSuccessfulAuth} />
       </Router>
