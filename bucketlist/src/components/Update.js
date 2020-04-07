@@ -83,6 +83,15 @@ class Update extends React.Component {
       })
   }
 
+  removeItem = (index) => {
+    console.log(index)
+    const newListItems = [...this.state.listItems]
+    newListItems.splice(index,1)
+    this.setState({
+      listItems: newListItems
+    })
+  }
+
   onCloseRequest = e => {
     this.props.onCloseRequest && this.props.onCloseRequest(e);
   };
@@ -115,6 +124,9 @@ class Update extends React.Component {
                   {this.state.listItems.map((item, index) => 
                     <div className="formfields" key={item.id}>
                       <label htmlFor="List Item">List Item</label>
+                      <div onClick={()=>this.removeItem(index)}>
+                        <label>remove</label>
+                      </div>
                       <div id="checkboxInput">
                         <input 
                           className="completedBox"
