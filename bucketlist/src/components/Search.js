@@ -81,12 +81,9 @@ class Search extends React.Component {
         <div className="listDiv">
           {this.state.items.map(item => (
             <div key={item.uuid} className="listItemsSearch hoverSearch">
-              <div className="imageDiv">
-                <img src={item.cover_image_url}></img>
-              </div>
-              <div className="searchItemTitle">{item.title}</div>
-              <div>{item.description}</div>
-              <div>{item.city.name}</div>
+              <div id="searchItemTitle">{item.title}</div>
+              <div id="searchItemDesc">{item.description}</div>
+              <div id="searchItemCity">{item.city.name}</div>
             </div>
           ))}
         </div>
