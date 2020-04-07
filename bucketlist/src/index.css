@@ -84,7 +84,7 @@ code {
 }
 
 .listDiv {
-  width: 50%;
+  /* width: 50%; */
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -101,21 +101,30 @@ code {
   overflow: auto;
   display: flex;
   justify-content: center;
+  width: 30%;
+  margin: auto;
 }
 
 .listNameIndex {
   display: block;
-  width: 20%;
+  width: 90%;
   padding: 2vh;
   text-align: left;
   cursor: pointer;
-  text-align: center;
+  text-align: left;
+}
+
+/* .listNameIndex {
+  padding-top: 20px;
+} */
+
+.listNameIndex:hover {
+  color: rgba(0, 0, 0, 0.3);
 }
 
 .delete-button {
   display: block;
-  z-index: 1; /* Sit on top */
-  padding: 2vh;
+  margin: auto;
   cursor: pointer;
 
   /* makes it so users can't select spacer text */
@@ -123,6 +132,10 @@ code {
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* IE10+/Edge */
   user-select: none; /* Standard */
+}
+
+.delete-button:hover {
+  color: red;
 }
 
 .listItemsShow {
@@ -239,10 +252,6 @@ code {
   cursor: pointer;
 }
 
-.hoverSearch:hover {
-  /* background: rgb(0, 51, 0); */
-}
-
 .searchItemImg {
   margin: 2px 0 10px 0;
 }
@@ -297,24 +306,7 @@ nav button {
   margin-left: 40px;
 }
 
-.listNameIndex:hover {
-  color: rgba(0, 0, 0, 0.3);
-}
-
-.listNameIndex {
-  padding-top: 20px;
-}
-
-.delete-button:hover {
-  color: red;
-}
-
-.delete-button {
-  padding-top: 20px;
-  margin-left: 50px;
-}
-
-#searchItemImg {
+#searchItemTitle {
   display: inline-block;
   vertical-align: top;
   width: 32%;
@@ -359,4 +351,14 @@ nav button {
 
 .isCompleted label {
   font-size: 10px;
+}
+
+.newBucketList {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.newBucketList form {
+  margin-left: auto;
+  margin-right: auto;
 }
