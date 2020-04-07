@@ -40,18 +40,16 @@ class Show extends React.Component {
                   {/* TITLE and ITEMS descending in this order: */}
                   </div>
                       <h3 className="showTitle">{this.props.item ? this.props.item.listName : null}</h3>
-                  <div className="showListItem">
-                    {this.props.item ? this.props.item.items : null}
-                  </div>
-                  <div className="showListItem">
-                    {this.props.item ? this.props.item.items : null}
-                  </div>
-                  <div className="showListItem">
-                    {this.props.item ? this.props.item.items : null}
-                  </div>
-                  <div className="showListItem">
-                    {this.props.item ? this.props.item.items : null}
-                  </div>
+
+                  {/* Map through items to show each item on its own div */}
+                    {this.props.item 
+                      ? this.props.item.items.map(item =>
+                          <div className="showListItem">
+                            {item}
+                          </div>
+                      )
+                      : null}
+                
 
                   {/* CLOSE at bottom */}
                   <div 
