@@ -12,16 +12,11 @@ class Show extends React.Component {
     this.props.onCloseRequest && this.props.onCloseRequest(e);
   };
 
-
   render() {
-    
+
     if(!this.props.display){
       return null;
     } else {
-      console.log("itemsList Data: ")
-      if (this.props.itemListsData.length > 0) {
-        console.log(this.props.itemListsData[0].itemName)
-      }
       return (
           <div className="modal">
             <div className="listItemsShow">
@@ -30,7 +25,6 @@ class Show extends React.Component {
                 onClick={e => {
                   this.onCloseRequest(this.props.item)
                   this.props.toggleEditClick(true)
-                  
                 }}>
                 edit
               </div>
@@ -39,9 +33,8 @@ class Show extends React.Component {
                 {this.props.item ? this.props.item.ownerID : null}
               </div>
               <div>
-                {this.props.item ? this.props.item.listName : null}
+                {this.props.item ? this.props.item.items : null}
               </div>
-
               <div 
                 className="closeTab"
                 
