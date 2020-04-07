@@ -46,13 +46,19 @@ class Show extends React.Component {
                     {this.props.item 
                       ? this.props.item.items.map(item =>
                         <>
-                          <div key={item._id} className="showListItem">
-                            {item.itemName}
+                          <div 
+                            key={item._id} 
+                            className="showListItem" 
+                            onClick={e => {
+                              this.onCloseRequest(this.props.item)
+                              this.props.toggleEditClick(true)
+                            }}>
+                              {item.itemName}
                             </div>
-                              <div key={item} className="isCompleted">
-                                <label>been there done that</label>
-                                <input type="checkbox" disabled="disabled" checked={item.isCompleted}></input> 
-                            </div>
+                                <div key={item} className="isCompleted">
+                                  <label>been there done that</label>
+                                  <input type="checkbox" disabled="disabled" checked={item.isCompleted}></input> 
+                              </div>
                         </>
                       )
                       

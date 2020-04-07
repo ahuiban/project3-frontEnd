@@ -308,6 +308,7 @@ nav button {
 .showListItem {
   width: 80%;
   margin: 15px auto 0 auto;
+  cursor: pointer;
 }
 
 .isCompleted {
