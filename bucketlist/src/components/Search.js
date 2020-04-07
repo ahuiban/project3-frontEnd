@@ -75,16 +75,15 @@ class Search extends React.Component {
               onChange={this.handleChange}
               required
             />
-            <button type="submit">Search</button>
+            <input type="submit" value="SEARCH"/>
           </form>
         </div>
-        <div className="listDiv">
+        <div className="listDivSearch">
           {this.state.items.map(item => (
             <div key={item.uuid} className="listItemsSearch hoverSearch">
               <div id="searchItemImg">
                 <img src={item.cover_image_url}></img>
               </div>
-
               <div id="searchItemTitle">
                 {item.title} <br />
               </div>

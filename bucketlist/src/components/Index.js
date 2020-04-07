@@ -85,7 +85,7 @@ class Index extends React.Component {
     return (
       <div>
         <img className="imgIndex" src="/bucketLogo.png"></img>
-        <h1>Current Lists</h1>
+        <h1>Your Lists</h1>
           <NewForm />
         <div className="listDiv">
           {this.state.items.map(item => (

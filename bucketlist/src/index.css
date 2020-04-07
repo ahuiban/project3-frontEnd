@@ -9,7 +9,7 @@ html {
 }
 
 body,
-.editList input {
+.editList input, .searchDiv input {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -84,7 +84,16 @@ code {
 }
 
 .listDiv {
-  /* width: 50%; */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10vh;
+  margin-top: 2vh;
+  text-align: left;
+}
+
+.listDivSearch {
+  width: 50%;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -101,31 +110,23 @@ code {
   overflow: auto;
   display: flex;
   justify-content: center;
-  width: 30%;
-  margin: auto;
 }
 
 .listNameIndex {
   display: block;
-  width: 90%;
+  width: 25%;
   padding: 2vh;
   text-align: left;
   cursor: pointer;
   text-align: left;
 }
 
-/* .listNameIndex {
-  padding-top: 20px;
-} */
-
-.listNameIndex:hover {
-  color: rgba(0, 0, 0, 0.3);
-}
-
 .delete-button {
   display: block;
-  margin: auto;
+  padding: 2vh;
   cursor: pointer;
+  padding-top: 20px;
+  margin-left: 50px;
 
   /* makes it so users can't select spacer text */
   -webkit-user-select: none; /* Safari */
@@ -204,12 +205,12 @@ code {
   padding: 0;
 }
 
-.editList input {
+.editList input, .searchDiv input[type="submit"] {
   background-color: rgba(0, 0, 0, 0);
   width: 100%;
   font-weight: bolder;
   border: 0px;
-  color: white;
+  /* color: white; */
   /* margin-top: 2vh; */
 }
 
@@ -222,7 +223,6 @@ code {
 }
 
 .cancelUpdate {
-  background: rgb(0, 41, 0);
   font-weight: bolder;
   cursor: pointer;
 }
@@ -302,11 +302,11 @@ nav button {
   opacity: 0.3;
 }
 
-.form {
-  margin-left: 40px;
+.listNameIndex:hover {
+  color: rgba(0, 0, 0, 0.3);
 }
 
-#searchItemTitle {
+#searchItemImg {
   display: inline-block;
   vertical-align: top;
   width: 32%;
@@ -353,12 +353,62 @@ nav button {
   font-size: 10px;
 }
 
-.newBucketList {
+#newBucketList form {
+  width: 100%;
   display: flex;
   flex-flow: column wrap;
 }
 
-.newBucketList form {
+form #newBucketInput {
+  min-width: 32%;
   margin-left: auto;
   margin-right: auto;
+}
+
+form #newBucketSubmit {
+  /* width: 30%; */
+  margin-left: auto;
+  margin-right: auto;
+
+  background-color: rgba(0, 0, 0, 0);
+  
+  font-weight: bolder;
+  border: 0px;
+  
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  cursor: pointer;
+}
+
+.formfields {
+  display: flex;
+  justify-content: space-between;
+}
+
+.formfields label {
+  margin-left: 2vw;
+  width: 40%;
+  text-align: left;
+}
+
+.formfields input {
+  text-align: left;
+  width: 60%;
+}
+
+.formfields #checkboxInput {
+ width: 60%; 
+ display: flex;
+ flex-flow: row nowrap;
+}
+
+#checkboxInput .completedBox {
+  width: 10%;
+}
+
+#checkboxInput input[type="text"] {
+  width: 90%;
 }

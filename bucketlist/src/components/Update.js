@@ -87,8 +87,7 @@ class Update extends React.Component {
               </div>
               <form onSubmit={this.handleSubmit}>
                 
-                <div className="formfields">
-                  <div>
+                  <div className="formfields">
                     <label htmlFor="listName">List Name</label>
                     <input 
                       onChange={this.handleChange}
@@ -98,23 +97,25 @@ class Update extends React.Component {
                     />
                   </div>
                   {this.state.listItems.map((item, index) => 
-                    <div key={item.id}>
+                    <div className="formfields" key={item.id}>
                       <label htmlFor="List Item">List Item</label>
+                      <div id="checkboxInput">
+                        <input 
+                          className="completedBox"
+                          onChange={this.handleChangeToggle}
+                          type="checkbox"
+                          id={index}
+                          checked={item.isCompleted}
+                        />
                         <input 
                           onChange={this.handleChangeArray}
                           type="text"
                           name={index}
                           value ={item.itemName}
                         />
-                       <input 
-                          onChange={this.handleChangeToggle}
-                          type="checkbox"
-                          id={index}
-                          checked={item.isCompleted}
-                        />
+                      </div>
                     </div>
                   )}
-                </div>
 
                 <div className="editList">
                   <input type="submit" value="SAVE CHANGES" />
