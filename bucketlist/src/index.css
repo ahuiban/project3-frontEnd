@@ -92,6 +92,10 @@ code {
   margin-bottom: 10vh;
 }
 
+.index-header {
+  margin-left: 30px;
+}
+
 .listItemsIndex {
   color: black;
   overflow: auto;
@@ -124,9 +128,10 @@ code {
 .listItemsShow {
   width: 40%;
   margin: auto;
-  background-color: black;
-  color: white;
+  background-color: white;
+  color: black;
   padding: 2vh;
+  border-radius: 10px;
 }
 
 .listItemsEdit form {
@@ -153,10 +158,12 @@ code {
 }
 
 .closeTab {
-  background: rgb(0, 41, 0);
+  background: white;
   font-weight: bolder;
   margin-top: 2vh;
   cursor: pointer;
+  text-align: end;
+  font-size: 15px;
 }
 
 .ownerName {
@@ -276,10 +283,14 @@ nav button {
   font-size: 24px;
   padding: 10px;
   display: block;
-  justify-content: center;
+  text-align: center;
   color: black;
   border: none;
   text-decoration: none;
+}
+
+.home-button:hover {
+  opacity: 0.3;
 }
 
 .form {
@@ -300,6 +311,7 @@ nav button {
 
 .delete-button {
   padding-top: 20px;
+  margin-left: 50px;
 }
 
 /* Show Page */
