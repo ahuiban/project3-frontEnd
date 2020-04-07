@@ -1,14 +1,21 @@
 # Project 3 - Bucket List - frontEnd
 
 ## The Website:
-
 via Heroku - TBD
 
 ## Technologies used
+- HTML
+- CSS
+- JS
+- Node.js
+- React
 
 ## The approach taken
 
 ## Unsolved problems
+- Lots of CSS features (mobile friendly, proper sizing, etc.)
+- Delete button for individual items
+- Completion check on Show component vs Update component
 
 ## User stories
 - User should be able to register
