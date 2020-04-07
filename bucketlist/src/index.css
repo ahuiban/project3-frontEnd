@@ -92,14 +92,7 @@ code {
   text-align: left;
 }
 
-.listDivSearch {
-  width: 50%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 10vh;
-  margin-top: 2vh;
-}
+
 
 .index-header {
   margin-left: 30px;
@@ -236,25 +229,7 @@ code {
   margin-right: auto;
 }
 
-.listItemsSearch {
-  /* background: rgb(0, 90, 0); */
 
-  /* color: white; */
-  overflow: auto;
-  display: flex;
-}
-
-.listNameSearch {
-  display: block;
-  width: 100%;
-  padding: 2vh;
-  text-align: left;
-  cursor: pointer;
-}
-
-.searchItemImg {
-  margin: 2px 0 10px 0;
-}
 
 .formfields {
   margin-bottom: 2vh;
@@ -304,34 +279,6 @@ nav button {
 
 .listNameIndex:hover {
   color: rgba(0, 0, 0, 0.3);
-}
-
-#searchItemImg {
-  display: inline-block;
-  vertical-align: top;
-  width: 32%;
-  padding-bottom: 2vh;
-}
-
-#searchItemTitle {
-  background: rgba(0, 0, 0, 0.2);
-  display: inline-block;
-  vertical-align: top;
-  width: 36%;
-  text-align: center;
-  color: white;
-  font-weight: bolder;
-  height: fit-content;
-  border-radius: 0px 0px 10px 10px;
-}
-
-#searchItemCity {
-  display: inline-block;
-  vertical-align: top;
-  width: 32%;
-  text-align: right;
-  color: white;
-  font-weight: bolder;
 }
 
 /* Show Page */
@@ -411,4 +358,51 @@ form #newBucketSubmit {
 
 #checkboxInput input[type="text"] {
   width: 90%;
+}
+
+
+/* SEARCH FIX */
+
+.listDivSearch {
+  width: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10vh;
+  margin-top: 2vh;
+}
+
+.listItemsSearch {
+  position: relative;
+}
+
+#searchItemImg img{
+  width: 100%;
+  height: auto;
+  padding-bottom: 2vh;
+}
+
+#searchItemTitle {
+  position: absolute;
+  left: 0;
+  top: 0;
+  text-align: center;
+  width: 100%;
+  
+  background: rgba(0, 0, 0, 0.2);
+  color: white;
+  font-weight: bolder;
+  height: fit-content;
+  border-radius: 0px 0px 10px 10px;
+}
+
+#searchItemCity {
+  position: absolute;
+  top: 0;
+  right: 1vw;
+  /* text-align: center; */
+
+  font-size: smaller;
+  color: white;
+  font-weight: bolder;
 }
