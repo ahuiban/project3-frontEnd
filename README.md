@@ -8,6 +8,8 @@ via Heroku - TBD
 - CSS
 - JS
 - Node.js
+- Express
+- Mongoose
 - React
 
 ## The approach taken
