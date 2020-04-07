@@ -19,21 +19,31 @@ class Update extends React.Component {
   }
 
   handleChange = (event)=>{
-
-    //formats data into array if necessary
-    if ([event.target.name] == "listItems" && event.target.value.includes(",")) { 
-      console.log(this.state.listItems)
-      this.setState({
-        [event.target.name]: event.target.value.split(",")
-      })
-    } else {
-    //otherwise updates state regularaly
     this.setState({
       [event.target.name]: event.target.value
     })
-    console.log("handle change", event)
+    console.log("handle change", event.target.name, event.target.value)
   }
-}
+
+  handleChangeArray = (event)=>{
+      const newListItems = [...this.state.listItems]
+      newListItems[event.target.name].itemName = event.target.value
+    this.setState({
+      listItems: newListItems
+    })
+    console.log("handle change", event.target.name,)
+  }
+
+  handleChangeToggle = (event) =>{
+    const newListItems = [...this.state.listItems]
+     newListItems[event.target.id].isCompleted = !this.state.listItems[event.target.id].isCompleted
+    this.setState({
+      listItems: newListItems
+    })
+    console.log("handle change", event.target.name,)
+
+  }
+
 
   handleSubmit = (event) =>{
     console.log("form submitted")
@@ -87,15 +97,23 @@ class Update extends React.Component {
                       value ={this.state.listName}
                     />
                   </div>
-                  <div>
-                    <label htmlFor="List Items">List Items</label>
-                      <input 
-                        onChange={this.handleChange}
-                        type="text"
-                        name="listItems"
-                        value ={this.state.listItems}
-                      />
-                  </div>
+                  {this.state.listItems.map((item, index) => 
+                    <div key={item.id}>
+                      <label htmlFor="List Item">List Item</label>
+                        <input 
+                          onChange={this.handleChangeArray}
+                          type="text"
+                          name={index}
+                          value ={item.itemName}
+                        />
+                       <input 
+                          onChange={this.handleChangeToggle}
+                          type="checkbox"
+                          id={index}
+                          checked={item.isCompleted}
+                        />
+                    </div>
+                  )}
                 </div>
 
                 <div className="editList">

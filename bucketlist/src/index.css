@@ -286,3 +286,23 @@ nav button {
   color: black;
   border: none;
 }
+
+
+/* Show Page */
+
+.itemLine{
+  width: 100%;
+}
+
+.showListItem{
+  width: 80%;
+  margin: 15px auto 0 auto;;
+}
+
+.isCompleted{
+  margin: auto;
+}
+
+.isCompleted label{
+  font-size: 10px;
+}
