@@ -42,14 +42,22 @@ class Show extends React.Component {
                       <h3 className="showTitle">{this.props.item ? this.props.item.listName : null}</h3>
 
                   {/* Map through items to show each item on its own div */}
+                  
                     {this.props.item 
                       ? this.props.item.items.map(item =>
-                          <div className="showListItem">
-                            {item}
-                          </div>
+                        <>
+                          <div key={item._id} className="showListItem">
+                            {item.itemName}
+                            </div>
+                              <div key={item} className="isCompleted">
+                                <label>been there done that</label>
+                                <input type="checkbox" disabled="disabled" checked={item.isCompleted}></input> 
+                            </div>
+                        </>
                       )
+                      
                       : null}
-                
+                  
 
                   {/* CLOSE at bottom */}
                   <div 
