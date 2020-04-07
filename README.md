@@ -11,6 +11,7 @@ via Heroku - TBD
 - React
 
 ## The approach taken
+- Trello: https://trello.com/b/SgFX0vGZ/project-3-bucket-list
 
 ## Unsolved problems
 - Lots of CSS features (mobile friendly, proper sizing, etc.)
