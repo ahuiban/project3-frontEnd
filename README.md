@@ -26,3 +26,5 @@ via Heroku - TBD
 ### Notes
 
 ### Wireframe
+- Rough concept: https://files.slack.com/files-pri/T0351JZQ0-F010Z29F8MP/aarikswireframe.jpg
+- Logo creation: https://files.slack.com/files-pri/T0351JZQ0-F010XHH197D/image.png
