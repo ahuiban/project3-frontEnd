@@ -132,8 +132,8 @@ class Update extends React.Component {
                       </div>
                     </div>
                   )}
-                      <div onClick={this.addItem}>
-                        add new item
+                      <div onClick={this.addItem} className="addListItem">
+                          ADD NEW ITEM
                       </div>              
                 <div className="editList">
                   <input type="submit" value="SAVE CHANGES" />
