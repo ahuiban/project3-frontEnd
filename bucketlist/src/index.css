@@ -225,7 +225,7 @@ code {
 
 .listItemsSearch {
   /* background: rgb(0, 90, 0); */
-  border-top: 1px solid rgb(0, 235, 0);
+
   /* color: white; */
   overflow: auto;
   display: flex;
@@ -243,7 +243,7 @@ code {
   /* background: rgb(0, 51, 0); */
 }
 
-.searchItemTitle {
+.searchItemImg {
   margin: 2px 0 10px 0;
 }
 
@@ -314,30 +314,32 @@ nav button {
   margin-left: 50px;
 }
 
-#searchItemTitle {
+#searchItemImg {
   display: inline-block;
-    vertical-align: top;
-    width: 32%;
-    padding-bottom: 2vh;
-    text-align: left;
-
+  vertical-align: top;
+  width: 32%;
+  padding-bottom: 2vh;
 }
 
-#searchItemDesc {
+#searchItemTitle {
+  background: rgba(0, 0, 0, 0.2);
   display: inline-block;
-    vertical-align: top;
-    width: 36%;
-    padding-bottom: 2vh;
-    text-align: center;
+  vertical-align: top;
+  width: 36%;
+  text-align: center;
+  color: white;
+  font-weight: bolder;
+  height: fit-content;
+  border-radius: 0px 0px 10px 10px;
 }
 
 #searchItemCity {
   display: inline-block;
-    vertical-align: top;
-    width: 32%;
-    padding-bottom: 2vh;
-    text-align: right;
-
+  vertical-align: top;
+  width: 32%;
+  text-align: right;
+  color: white;
+  font-weight: bolder;
 }
 
 /* Show Page */
