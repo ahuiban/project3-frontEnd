@@ -67,6 +67,22 @@ class Update extends React.Component {
     }).catch (error => console.error({'Error': error}))
   }
 
+  addItem = () => {
+    const newListItems = [...this.state.listItems]
+    newListItems.push(
+      {
+        itemName: "",
+        itemDescription: "",
+        itemCategory: "",
+        itemImageURL: "",
+        isCompleted: false  
+      }
+    )
+      this.setState({
+        listItems: newListItems
+      })
+  }
+
   onCloseRequest = e => {
     this.props.onCloseRequest && this.props.onCloseRequest(e);
   };
@@ -116,7 +132,9 @@ class Update extends React.Component {
                       </div>
                     </div>
                   )}
-
+                      <div onClick={this.addItem}>
+                        add new item
+                      </div>              
                 <div className="editList">
                   <input type="submit" value="SAVE CHANGES" />
                 </div>
