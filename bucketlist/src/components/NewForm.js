@@ -28,17 +28,21 @@ class NewForm extends React.Component {
   render() {
     return (
       <div id="newBucketList">
-        <form onSubmit={this.handleSubmit} 
-        >
+        <form onSubmit={this.handleSubmit}>
           <input
             type="text"
+            id="newBucketInput"
             name="listName"
-            value={this.state.listname}
+            // value={this.state.listname}
             onChange={this.handleChange}
             maxLength="41"
+            placeholder="(ex. Places I Want to Travel)"
             autoFocus
           />
-          <input type="submit" value="Create BucketList" />
+          <input 
+            type="submit"
+            id="newBucketSubmit"
+            value="CREATE a BUCKETLIST" />
         </form>
       </div>
     );

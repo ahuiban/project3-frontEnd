@@ -11,7 +11,7 @@ class Home extends React.Component {
             <div>
               <Link to="/index" style={{ textDecoration: "none" }}>
                 <a href="#" className="home-button">
-                  BucketLists
+                  Your BucketLists
                 </a>
               </Link>
 
