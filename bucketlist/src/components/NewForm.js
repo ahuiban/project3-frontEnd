@@ -24,14 +24,11 @@ class NewForm extends React.Component {
     }).then(res => {
       console.log("res from from", res);
     });
-    this.props.history.push("/index");
   };
   render() {
     return (
       <div>
-        <h1>New BucketList</h1>
-        <img className="imgNew" src="/bucketLogo.png"></img>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} className="create-form">
           <input
             type="text"
             name="listName"

@@ -22,6 +22,7 @@ body {
   background-image: url("https://wallpaperplay.com/walls/full/7/3/3/193175.jpg");
   background-size: cover;
   background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 code {
@@ -34,7 +35,7 @@ code {
 }
 
 .containerShow {
-  display:flex;
+  display: flex;
   justify-content: space-between;
 }
 
@@ -48,7 +49,7 @@ code {
 
 .imgNew {
   /* background-color: goldenrod; */
-/* border: 1px solid red; */
+  /* border: 1px solid red; */
 
   width: 50%;
   height: 50%;
@@ -65,15 +66,14 @@ code {
   margin-right: auto;
 }
 
-  .smallImg {
-    background-color:rgba(0,0,0,0);
-    display: inline-block;
-    margin-right: auto;
-    border:1px solid gold;
+.smallImg {
+  background-color: rgba(0, 0, 0, 0);
+  display: inline-block;
+  margin-right: auto;
 
-    width: 3vh;
-    height: 3vh;
-  }
+  width: 3vh;
+  height: 3vh;
+}
 
 .imgShow {
   width: 50%;
@@ -95,41 +95,37 @@ code {
 .listItemsIndex {
   color: black;
   overflow: auto;
-  display:flex;
+  display: flex;
+  justify-content: center;
 }
 
 .listNameIndex {
   display: block;
-  width: 100%;
-  padding:2vh;
+  width: 20%;
+  padding: 2vh;
   text-align: left;
   cursor: pointer;
+  text-align: center;
 }
 
 .delete-button {
   display: block;
   z-index: 1; /* Sit on top */
-  padding:2vh;
-  border-left:1px solid rgb(0, 230, 230);
+  padding: 2vh;
   cursor: pointer;
 
   /* makes it so users can't select spacer text */
-  -webkit-user-select: none; /* Safari */        
+  -webkit-user-select: none; /* Safari */
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* IE10+/Edge */
   user-select: none; /* Standard */
 }
 
-.hoverIndex:hover {
-  background: rgb(0, 51, 51)
-}
-
 .listItemsShow {
   width: 40%;
   margin: auto;
-  background: rgb(0, 90, 0);
-  border-top: 1px solid rgb(0, 235, 0);
-  color:white;  
+  background-color: black;
+  color: white;
   padding: 2vh;
 }
 
@@ -159,7 +155,7 @@ code {
 .closeTab {
   background: rgb(0, 41, 0);
   font-weight: bolder;
-  margin-top:2vh;
+  margin-top: 2vh;
   cursor: pointer;
 }
 
@@ -169,10 +165,10 @@ code {
   padding: 0;
 
   /* makes it so users can't select spacer text */
-  -webkit-user-select: none; /* Safari */        
--moz-user-select: none; /* Firefox */
--ms-user-select: none; /* IE10+/Edge */
-user-select: none; /* Standard */
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
 }
 
 .showTitle {
@@ -180,7 +176,7 @@ user-select: none; /* Standard */
   margin-bottom: 2vh;
 }
 
-.editList{
+.editList {
   /* float: right; */
   /* width: 150px; */
   font-weight: bolder;
@@ -189,7 +185,7 @@ user-select: none; /* Standard */
 }
 
 .editList input {
-  background-color:rgba(0,0,0,0);
+  background-color: rgba(0, 0, 0, 0);
   width: 100%;
   font-weight: bolder;
   border: 0px;
@@ -213,8 +209,6 @@ user-select: none; /* Standard */
 
 /* SEARCH Page */
 .imgSearch {
-  background-color: green;
-
   width: 50%;
   height: 50%;
   display: block;
@@ -227,13 +221,13 @@ user-select: none; /* Standard */
   border-top: 1px solid rgb(0, 235, 0);
   color: white;
   overflow: auto;
-  display:flex;
+  display: flex;
 }
 
 .listNameSearch {
   display: block;
   width: 100%;
-  padding:2vh;
+  padding: 2vh;
   text-align: left;
   cursor: pointer;
 }
@@ -281,28 +275,48 @@ nav button {
 .home-button {
   font-size: 24px;
   padding: 10px;
-  display: inline-block;
-  text-decoration: none;
+  display: block;
+  justify-content: center;
   color: black;
   border: none;
+  text-decoration: none;
 }
 
+.form {
+  margin-left: 40px;
+}
+
+.listNameIndex:hover {
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.listNameIndex {
+  padding-top: 20px;
+}
+
+.delete-button:hover {
+  color: red;
+}
+
+.delete-button {
+  padding-top: 20px;
+}
 
 /* Show Page */
 
-.itemLine{
+.itemLine {
   width: 100%;
 }
 
-.showListItem{
+.showListItem {
   width: 80%;
-  margin: 15px auto 0 auto;;
+  margin: 15px auto 0 auto;
 }
 
-.isCompleted{
+.isCompleted {
   margin: auto;
 }
 
-.isCompleted label{
+.isCompleted label {
   font-size: 10px;
 }

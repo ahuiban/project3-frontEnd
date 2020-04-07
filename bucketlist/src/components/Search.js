@@ -15,7 +15,7 @@ class Search extends React.Component {
   state = {
     items: [],
     item: {},
-    activity: ""
+    activity: "",
   };
 
   /*
@@ -40,57 +40,57 @@ class Search extends React.Component {
   handleSubmit = event => {
     console.log("Form submitted");
     event.preventDefault();
-    console.log(searchURL + this.state.activity)
+    console.log(searchURL + this.state.activity);
     fetch(searchURL + this.state.activity, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
       },
-    }).then( res => res.json())
-    .then(resJson => {
-        console.log(resJson.data)
+    })
+      .then(res => res.json())
+      .then(resJson => {
+        console.log(resJson.data);
         this.setState({
-            items: resJson.data
-          })
-    }).catch (error => console.error({error}))
-  }
+          items: resJson.data,
+        });
+      })
+      .catch(error => console.error({ error }));
+  };
 
   render() {
     return (
-        
       <div>
-        <h1>Search</h1>
         <img className="imgSearch" src="/bucketLogo.png"></img>
         {/* FEEL FREE TO DELETE - image is BIG so it will look good in any size, you can resize as you want! */}
         {/* SET to 75% */}
-       
+
         <div className="searchDiv">
           <h2>Search for Bucket List activities</h2>
           <form onSubmit={this.handleSubmit}>
             <input
-                type="text"
-                name="activity"
-                placeholder="activity name"
-                value={this.state.activity}
-                onChange={this.handleChange}
-                required
+              type="text"
+              name="activity"
+              placeholder="activity name"
+              value={this.state.activity}
+              onChange={this.handleChange}
+              required
             />
             <button type="submit">Search</button>
-        </form>
+          </form>
         </div>
         <div className="listDiv">
           {this.state.items.map(item => (
             <div key={item.uuid} className="listItemsSearch hoverSearch">
-              <div className='imageDiv'><img src={item.cover_image_url}></img></div>
-              <div className='searchItemTitle'>{item.title}</div>
+              <div className="imageDiv">
+                <img src={item.cover_image_url}></img>
+              </div>
+              <div className="searchItemTitle">{item.title}</div>
               <div>{item.description}</div>
               <div>{item.city.name}</div>
-              
             </div>
           ))}
         </div>
       </div>
-
     );
   }
 }
