@@ -9,14 +9,15 @@ class Home extends React.Component {
         <div className="listDiv">
           <div className="listItemsHome">
             <div>
-              <Link to="/new">
+              <Link to="/index" style={{ textDecoration: "none" }}>
                 <a href="#" className="home-button">
-                  Create BucketList
+                  BucketLists
                 </a>
               </Link>
-              <Link to="/index">
+
+              <Link to="/search" style={{ textDecoration: "none" }}>
                 <a href="#" className="home-button">
-                  See BucketLists
+                  Search Activities
                 </a>
               </Link>
             </div>

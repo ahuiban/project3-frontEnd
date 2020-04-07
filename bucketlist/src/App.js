@@ -41,7 +41,6 @@ class RenderRoutes extends React.Component {
         <Route path="/" exact component={Home} />
         <Route path="/index" exact component={Index} />
         <Route path="/show" exact component={Show} />
-        <Route path="/new" exact component={NewForm} />
         <Route
           path="/login"
           render={routeProps => (
@@ -105,10 +104,6 @@ class App extends React.Component {
           <nav>
             <Link to="/" className={"nav-item"}>
               Home
-            </Link>
-
-            <Link to="/new" className={"nav-item"}>
-              Create a List
             </Link>
 
             <Link to="/index" className={"nav-item"}>
